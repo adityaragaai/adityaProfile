@@ -62,7 +62,7 @@ export default function ContestAnalytics({ contest: raw, loading }) {
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <StatBox
           icon={<Award className="size-3.5 text-[oklch(0.769_0.188_70.08)]" />}
           label="Contest Rating"
@@ -152,7 +152,7 @@ function ContestSkeleton() {
   return (
     <div className="bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10 p-5 animate-pulse flex flex-col gap-4">
       <div className="h-4 bg-[oklch(0.269_0_0)] rounded w-1/3" />
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {[0,1,2].map(i => <div key={i} className="h-16 bg-[oklch(0.269_0_0)] rounded-xl" />)}
       </div>
       <div className="h-28 bg-[oklch(0.269_0_0)] rounded-xl" />

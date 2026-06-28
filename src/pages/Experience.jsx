@@ -70,12 +70,12 @@ const skills = [
 
 export default function Experience() {
   return (
-    <main className="overflow-y-auto p-8 flex-1">
+    <main className="overflow-y-auto p-4 md:p-8 flex-1">
       {/* Page Header */}
-      <div className="flex mb-8 justify-between items-start">
+      <div className="flex mb-6 md:mb-8 justify-between items-start gap-3">
         <div>
           <div className="flex mb-1 items-center gap-3">
-            <h1 className="font-bold text-3xl leading-9 tracking-tight">Experience</h1>
+            <h1 className="font-bold text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Experience</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] font-mono rounded-full text-xs leading-4 px-2 py-0.5">
               4 roles
             </span>
@@ -95,7 +95,7 @@ export default function Experience() {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 mb-8 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 mb-6 md:mb-8 gap-3 md:gap-4">
         {[
           { label: 'INTERNSHIP', icon: Clock, value: '5 mo', sub: 'RagaAI · SDE Frontend', subColor: 'oklch(0.488 0.243 264.376)' },
           { label: 'CLIENTS SERVED', icon: Users, value: '10+', sub: 'YouTubers & clients', subColor: '#a1a1a1' },
@@ -116,9 +116,9 @@ export default function Experience() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Timeline */}
-        <div className="col-span-2">
+        <div className="col-span-1 lg:col-span-2">
           <div className="flex mb-5 items-center gap-2">
             <GitBranch className="size-4 text-[oklch(0.488_0.243_264.376)]" />
             <h2 className="font-bold text-lg leading-7">Deployment Timeline</h2>
@@ -174,7 +174,7 @@ export default function Experience() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="col-span-1 flex flex-col gap-6">
+        <div className="col-span-1 flex flex-col gap-4 md:gap-6">
           {/* Location Image */}
           <Card className="bg-neutral-900 border-0 border-solid p-0 gap-0 overflow-hidden">
             <div className="relative h-32">

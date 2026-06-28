@@ -31,57 +31,77 @@ import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
 
 export default function Dashboard({ onNavigate }) {
   return (
-    <div className="flex p-6 flex-col flex-1 gap-4 overflow-auto">
+    <div className="flex p-4 md:p-6 flex-col flex-1 gap-4 overflow-auto">
       {/* Hero Banner */}
-      <div className="relative min-h-[220px] rounded-2xl border-white/10 border-1 border-solid flex items-end overflow-hidden">
+      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl border-white/10 border-1 border-solid flex items-end overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODc2NDd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBtaW5pbWFsJTIwZGFya3xlbnwxfDB8fHwxNzgwMTk3MjgxfDA&ixlib=rb-4.1.0&q=80&w=1200"
           alt="Developer workspace"
           className="object-cover opacity-30 absolute inset-0 w-full h-full"
         />
-        <div className="bg-[linear-gradient(to_top,oklch(0.145_0_0)_0%,transparent_60%)] absolute inset-0" />
-        <div className="relative z-10 flex p-8 flex-col gap-2 w-full">
+        <div className="bg-[linear-gradient(to_top,oklch(0.145_0_0)_0%,oklch(0.145_0_0/0.7)_40%,transparent_80%)] absolute inset-0" />
+        <div className="relative z-10 flex p-4 md:p-8 flex-col gap-2 w-full">
           <div className="flex mb-1 items-center gap-2">
             <span className="text-[oklch(0.488_0.243_264.376)] bg-[oklch(0.488_0.243_264.376)]/10 border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border-1 border-solid px-2 py-0.5">
               PROCESS_ID: 0xAG09 · UPTIME: BTech CSE @ LPU
             </span>
           </div>
-          <h1 className="font-bold text-neutral-50 text-4xl leading-10 tracking-tight">
+          <h1 className="font-bold text-neutral-50 text-2xl md:text-4xl leading-8 md:leading-10 tracking-tight">
             Aditya Gupta
             <span className="font-light text-[#a1a1a1]"> / Full-Stack Developer</span>
           </h1>
-          <p className="max-w-xl text-[#a1a1a1] text-sm leading-5">
+          <p className="max-w-xl text-[#a1a1a1] text-xs md:text-sm leading-5">
             Full-Stack Developer who ships fast and thinks in systems. I build clean, scalable web apps — and yes, I vibe code with AI to move faster without cutting corners. Obsessed with great UI, sharp logic, and turning ideas into live products.
           </p>
-          <div className="flex mt-2 items-center gap-3">
+          <div className="flex mt-2 items-center gap-2 md:gap-3">
             <button
               onClick={() => onNavigate?.('projects')}
-              className="bg-[oklch(0.922_0_0)] text-[oklch(0.205_0_0)] transition-colors font-semibold rounded-lg text-xs leading-4 flex px-4 py-2 items-center gap-2"
+              className="bg-[oklch(0.922_0_0)] text-[oklch(0.205_0_0)] transition-colors font-semibold rounded-lg text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
-              <FolderOpen className="size-3.5" />
-              View Projects
+              <FolderOpen className="size-3.5 shrink-0" />
+              <span className="hidden sm:inline">View </span>Projects
             </button>
             <a
               href="https://drive.google.com/file/d/1k5COQAnL50fvoU5ARkQF7D_noFjuJCbp/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
-              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-4 py-2 items-center gap-2"
+              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
-              <Download className="size-3.5" />
-              Resume.pdf
+              <Download className="size-3.5 shrink-0" />
+              Resume<span className="hidden sm:inline">.pdf</span>
             </a>
             <a
               href="https://github.com/Adityaguptawebdev"
               target="_blank"
               rel="noreferrer"
-              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-4 py-2 items-center gap-2"
+              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
-              <FallbackComponent className="size-3.5" />
+              <FallbackComponent className="size-3.5 shrink-0" />
               GitHub
             </a>
           </div>
+          {/* Stack pills — mobile only, shown inline below buttons */}
+          <div className="md:hidden mt-1 flex flex-wrap gap-1">
+            {[
+              { t: 'React.js',   c: 'oklch(0.488 0.243 264.376)' },
+              { t: 'Node.js',    c: 'oklch(0.488 0.243 264.376)' },
+              { t: 'MongoDB',    c: 'oklch(0.696 0.17 162.48)' },
+              { t: 'JavaScript', c: 'oklch(0.696 0.17 162.48)' },
+              { t: 'TypeScript', c: 'oklch(0.488 0.243 264.376)' },
+              { t: 'Java',       c: 'oklch(0.769 0.188 70.08)' },
+              { t: 'Figma',      c: 'oklch(0.769 0.188 70.08)' },
+              { t: 'UI/UX',      c: 'oklch(0.627 0.265 303.9)' },
+            ].map(({ t, c }) => (
+              <span key={t} className="flex items-center gap-1 rounded-full text-[10px] border border-solid px-2 py-0.5"
+                style={{ color: c, backgroundColor: `color-mix(in oklch, ${c} 15%, transparent)`, borderColor: `color-mix(in oklch, ${c} 20%, transparent)` }}>
+                {TECH_ICONS[t] && <img src={TECH_ICONS[t]} alt={t} className="size-3 object-contain" />}
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-        <div className="z-10 flex absolute right-6 top-6 flex-col gap-2">
+        {/* Stack card — desktop only, absolute top-right */}
+        <div className="z-10 hidden md:flex absolute right-6 top-6 flex-col gap-2">
           <div className="bg-[oklch(0.205_0_0)]/80 backdrop-blur-sm rounded-xl border-white/10 border-1 border-solid flex p-3 flex-col gap-1">
             <p className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">Stack</p>
             <div className="max-w-[180px] flex flex-wrap gap-1">
@@ -107,7 +127,7 @@ export default function Dashboard({ onNavigate }) {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-4 gap-2">
           <CardContent className="flex p-0 flex-col gap-0">
             <div className="flex mb-1 justify-between items-center">
@@ -163,8 +183,8 @@ export default function Dashboard({ onNavigate }) {
       <LeetCodeCard onNavigate={onNavigate} />
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="col-span-2 flex flex-col gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
           {/* Active Projects */}
           <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-1">

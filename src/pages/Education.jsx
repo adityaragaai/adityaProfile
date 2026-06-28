@@ -95,12 +95,12 @@ export default function Education() {
   const [lightbox, setLightbox] = useState(null)
 
   return (
-    <div className="overflow-y-auto p-8 flex-1">
+    <div className="overflow-y-auto p-4 md:p-8 flex-1">
       {/* Page Header */}
-      <div className="flex mb-8 justify-between items-start">
+      <div className="flex mb-6 md:mb-8 justify-between items-start gap-3">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-3xl leading-9 tracking-tight">Education</h1>
+            <h1 className="font-bold text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Education</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.7_0.18_264)] font-mono rounded-full text-xs leading-4 px-2.5 py-0.5">
               BTech CSE
             </span>
@@ -120,7 +120,7 @@ export default function Education() {
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 mb-8 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 mb-6 md:mb-8 gap-3 md:gap-4">
         <Card className="bg-neutral-900 border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
@@ -177,9 +177,9 @@ export default function Education() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Academic Timeline */}
-        <div className="col-span-2 flex flex-col gap-6">
+        <div className="col-span-1 lg:col-span-2 flex flex-col gap-6">
           <div className="flex mb-1 items-center gap-2">
             <GitBranch className="size-4 text-[oklch(0.696_0.17_162.48)]" />
             <h2 className="font-semibold text-lg leading-7">Academic Timeline</h2>
@@ -225,7 +225,7 @@ export default function Education() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="flex flex-col gap-6">
+        <div className="col-span-1 flex flex-col gap-4 md:gap-6">
           {/* Campus Image */}
           <a href="https://www.lpu.in/" target="_blank" rel="noreferrer" className="block">
             <Card className="bg-neutral-900 border-0 border-solid p-0 gap-0 overflow-hidden hover:ring-1 hover:ring-white/20 transition-all">

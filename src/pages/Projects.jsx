@@ -330,12 +330,12 @@ export default function Projects() {
   }, [activeFilter, isAssignmentActive, mainActiveIdx])
 
   return (
-    <div className="flex p-8 flex-col flex-1 gap-6 overflow-auto">
+    <div className="flex p-4 md:p-8 flex-col flex-1 gap-4 md:gap-6 overflow-auto">
       {/* Page Header */}
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-start gap-3">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-neutral-50 text-3xl leading-9 tracking-tight">Projects</h1>
+            <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5">
               11 shipped
             </span>
@@ -346,15 +346,15 @@ export default function Projects() {
           href="https://github.com/Adityaguptawebdev"
           target="_blank"
           rel="noreferrer"
-          className="transition-colors font-semibold rounded-lg bg-neutral-200 hover:bg-white text-neutral-900 text-xs leading-4 flex px-4 py-2 items-center gap-2"
+          className="shrink-0 transition-colors font-semibold rounded-lg bg-neutral-200 hover:bg-white text-neutral-900 text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-2"
         >
           <Plus className="size-3.5" />
-          View GitHub
+          <span className="hidden sm:inline">View </span>GitHub
         </a>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none">
         <div className="relative flex items-center gap-1 bg-neutral-800/50 border border-white/10 rounded-full p-1">
           <span
             className="absolute top-1 bottom-1 rounded-full pointer-events-none"
@@ -429,7 +429,7 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {visible.map(project => (
           <div
             key={project.name}

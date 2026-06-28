@@ -19,15 +19,28 @@ const pages = {
 
 export default function App() {
   const [activePage, setActivePage] = useState('dashboard')
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const PageComponent = pages[activePage]
+
+  function navigate(page) {
+    setActivePage(page)
+    setSidebarOpen(false)
+  }
 
   return (
     <div className="bg-neutral-950 text-neutral-50 flex h-screen overflow-hidden w-screen">
-      <Sidebar activePage={activePage} onNavigate={setActivePage} />
-      <div className="flex flex-col flex-1 overflow-hidden">
-        <Header />
+      {/* Mobile backdrop */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 z-20 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      <Sidebar activePage={activePage} onNavigate={navigate} isOpen={sidebarOpen} />
+      <div className="flex flex-col flex-1 overflow-hidden min-w-0">
+        <Header onMenuClick={() => setSidebarOpen(o => !o)} />
         <main className="flex flex-col flex-1 overflow-auto">
-          <PageComponent onNavigate={setActivePage} />
+          <PageComponent onNavigate={navigate} />
         </main>
       </div>
     </div>

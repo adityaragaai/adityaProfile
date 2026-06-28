@@ -15,7 +15,7 @@ export default function LeetCode() {
   return (
     <div className="flex flex-col flex-1 overflow-auto">
       {/* Page header */}
-      <div className="flex items-center justify-between px-6 pt-6 pb-2">
+      <div className="flex items-center justify-between px-4 md:px-6 pt-4 md:pt-6 pb-2">
         <div className="flex items-center gap-3">
           <div className="size-8 rounded-lg bg-[oklch(0.769_0.188_70.08)]/15 border border-[oklch(0.769_0.188_70.08)]/30 flex items-center justify-center">
             <Code2 className="size-4 text-[oklch(0.769_0.188_70.08)]" />
@@ -41,7 +41,7 @@ export default function LeetCode() {
       </div>
 
       {/* Main layout */}
-      <div className="grid grid-cols-[260px_1fr] gap-4 p-6 pt-3 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-4 p-4 md:p-6 pt-3 flex-1">
         {/* Left: Profile Card */}
         <ProfileCard
           profile={data?.profile}
@@ -57,7 +57,7 @@ export default function LeetCode() {
           <ContestAnalytics contest={data?.contest} loading={loading} />
 
           {/* Row 2: Problems + Badges */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <ProblemStats profile={data?.profile} loading={loading} />
             <BadgesSection badges={data?.badges}  loading={loading} />
           </div>

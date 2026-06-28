@@ -15,9 +15,14 @@ const navItems = [
 
 const navigablePages = new Set(['dashboard', 'projects', 'experience', 'about', 'leetcode', 'contact'])
 
-export default function Sidebar({ activePage, onNavigate }) {
+export default function Sidebar({ activePage, onNavigate, isOpen }) {
   return (
-    <aside className="min-h-screen bg-[oklch(0.205_0_0)] shrink-0 border-white/10 border-t-0 border-r-1 border-b-0 border-l-0 border-solid flex p-4 flex-col gap-1 w-56">
+    <aside className={`
+      fixed md:static inset-y-0 left-0 z-30
+      min-h-screen bg-[oklch(0.205_0_0)] shrink-0 border-white/10 border-t-0 border-r-1 border-b-0 border-l-0 border-solid flex p-4 flex-col gap-1 w-56
+      transition-transform duration-300 ease-in-out
+      ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+    `}>
       <div className="flex mb-4 px-2 py-3 items-center gap-2">
         <div className="size-7 bg-[oklch(0.488_0.243_264.376)] rounded-lg flex justify-center items-center">
           <Terminal className="size-4 text-white" />
