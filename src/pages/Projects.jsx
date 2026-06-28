@@ -354,8 +354,8 @@ export default function Projects() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-none">
-        <div className="relative flex items-center gap-1 bg-neutral-800/50 border border-white/10 rounded-full p-1">
+      <div className="flex flex-wrap items-center gap-2">
+        <div className="relative flex items-center gap-1 bg-neutral-800/50 border border-white/10 rounded-full p-1 shrink-0">
           <span
             className="absolute top-1 bottom-1 rounded-full pointer-events-none"
             style={{
@@ -373,7 +373,7 @@ export default function Projects() {
                 key={f.key}
                 ref={el => { btnRefs.current[i] = el }}
                 onClick={() => setActiveFilter(f.key)}
-                className="relative z-10 font-medium rounded-full text-xs leading-4 px-4 py-1.5 transition-colors duration-200"
+                className="relative z-10 font-medium rounded-full text-xs leading-4 px-3 md:px-4 py-1.5 transition-colors duration-200"
                 style={{ color: isActive ? PILL_COLORS[f.key].text : '#a1a1a1' }}
               >
                 {f.label}
@@ -382,7 +382,7 @@ export default function Projects() {
           })}
         </div>
 
-        <span className="w-px h-5 bg-white/10 rounded-full shrink-0" />
+        <span className="w-px h-5 bg-white/10 rounded-full shrink-0 hidden sm:block" />
 
         <style>{`
           @keyframes companyGlow {
@@ -402,7 +402,7 @@ export default function Projects() {
 
         <button
           onClick={() => setActiveFilter('assignment')}
-          className="company-btn relative overflow-hidden font-medium rounded-full text-xs leading-4 px-4 py-1.5 transition-colors duration-200"
+          className="company-btn relative overflow-hidden font-medium rounded-full text-xs leading-4 px-3 md:px-4 py-1.5 transition-colors duration-200 shrink-0"
           style={isAssignmentActive ? {
             backgroundColor: ASSIGNMENT_COLOR,
             color: 'white',
