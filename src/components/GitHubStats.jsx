@@ -454,7 +454,7 @@ export default function GitHubStats() {
       </div>
 
       {/* Section Header */}
-      <div className="flex justify-between items-start mb-5">
+      <div className="flex flex-wrap justify-between items-start gap-3 mb-5">
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-3">
             <FallbackComponent className="size-5 text-neutral-50" />
@@ -484,7 +484,7 @@ export default function GitHubStats() {
       </div>
 
       {/* Row 1 — Stats + Streak (native, no external images) */}
-      <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <GitHubStatsCard username={DEV_USER} totalContribs={total} />
         <GitHubStreakCard contributions={contributions} total={total} loading={contribLoading} />
       </div>
@@ -503,7 +503,7 @@ export default function GitHubStats() {
       </div>
 
       {/* Row 4 — Top Languages + Dual Account Card */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <GitHubLangsCard username={DEV_USER} />
 
         {/* Dual Account Info */}

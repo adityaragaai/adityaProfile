@@ -81,13 +81,13 @@ export default function Contact() {
   const isValid = form.name && form.email && form.message
 
   return (
-    <div className="flex p-8 flex-col flex-1 gap-6 overflow-auto">
+    <div className="flex p-4 md:p-8 flex-col flex-1 gap-4 md:gap-6 overflow-auto">
 
       {/* Page Header */}
-      <div className="flex justify-between items-end">
+      <div className="flex flex-wrap justify-between items-start gap-2">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-neutral-50 text-3xl leading-9 tracking-tight">Contact</h1>
+            <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Contact</h1>
             <span className="bg-[oklch(0.696_0.17_162.48)]/15 text-[oklch(0.696_0.17_162.48)] border-[oklch(0.696_0.17_162.48)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5 flex items-center gap-1.5">
               <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] rounded-full animate-pulse inline-block" />
               Open to Work
@@ -102,10 +102,10 @@ export default function Contact() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
 
         {/* Left — Form + Socials */}
-        <div className="col-span-2 flex flex-col gap-4">
+        <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
           <Card className="bg-neutral-900 border-white/5 p-6 flex flex-col gap-5">
             <CardHeader className="p-0 flex flex-col gap-1">
               <div className="flex items-center gap-2">
@@ -117,7 +117,7 @@ export default function Contact() {
 
             <CardContent className="p-0 flex flex-col gap-4">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[#a1a1a1] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
                       <User className="size-3" /> Name
@@ -188,7 +188,7 @@ export default function Contact() {
           </Card>
 
           {/* Social Tiles */}
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {socials.map(({ label, handle, href, Icon, color, bg, bgImage }) => (
               <a
                 key={label}
