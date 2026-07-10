@@ -62,7 +62,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="hidden sm:inline">View </span>Projects
             </button>
             <a
-              href="https://drive.google.com/file/d/1k5COQAnL50fvoU5ARkQF7D_noFjuJCbp/view?usp=sharing"
+              href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
@@ -501,7 +501,7 @@ function LeetCodeCard({ onNavigate }) {
                 </span>
               )}
             </div>
-            <p className="text-[#a1a1a1] text-[10px] mt-0.5">@rahul860152gupta · Live stats</p>
+            <p className="text-[#a1a1a1] text-[10px] mt-0.5">@adityaguptawebdev · Live stats</p>
           </div>
         </div>
 
