@@ -44,11 +44,11 @@ const socials = [
   { label: 'GitHub',   handle: '@Adityaguptawebdev',           href: 'https://github.com/Adityaguptawebdev',      Icon: GithubIcon,   color: 'oklch(0.922 0 0)',          bg: 'oklch(0.922 0 0)' },
   { label: 'LinkedIn', handle: '@adityagupta-swe',              href: 'https://www.linkedin.com/in/adityagupta-swe/',   Icon: LinkedinIcon, color: 'white',                      bg: 'oklch(0.488 0.243 264.376)', bgImage: linkedinBg },
   { label: 'YouTube',  handle: '@AlgoStrive',                  href: 'https://youtu.be/E3hUmiRxPxg?si=9Dv9-4nkeKjc9W4s',       Icon: YoutubeIcon,  color: 'white',                      bg: 'oklch(0.627 0.265 25)', bgImage: youtubeBg },
-  { label: 'Email',    handle: 'rahul860152gupta@gmail.com', href: 'mailto:rahul860152gupta@gmail.com',       Icon: Mail,         color: 'oklch(0.696 0.17 162.48)',   bg: 'oklch(0.696 0.17 162.48)' },
+  { label: 'Email',    handle: 'aditya.gupta.sde26@gmail.com', href: 'mailto:aditya.gupta.sde26@gmail.com',       Icon: Mail,         color: 'oklch(0.696 0.17 162.48)',   bg: 'oklch(0.696 0.17 162.48)' },
 ]
 
 const contactInfo = [
-  { icon: Mail,     label: 'Email',        value: 'rahul860152gupta@gmail.com', href: 'mailto:rahul860152gupta@gmail.com', color: 'oklch(0.696 0.17 162.48)' },
+  { icon: Mail,     label: 'Email',        value: 'aditya.gupta.sde26@gmail.com', href: 'mailto:aditya.gupta.sde26@gmail.com', color: 'oklch(0.696 0.17 162.48)' },
   { icon: MapPin,   label: 'Location',     value: 'India · Open to Remote',       color: 'oklch(0.488 0.243 264.376)' },
   { icon: Clock,    label: 'Response',     value: 'Usually within 24 hrs',        color: 'oklch(0.769 0.188 70.08)' },
   { icon: Calendar, label: 'Availability', value: 'Immediately',                  color: 'oklch(0.696 0.17 162.48)' },
@@ -73,7 +73,7 @@ export default function Contact() {
     e.preventDefault()
     const { name, email, subject, message } = form
     const body = `Hi Aditya,%0A%0A${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(name)} (${encodeURIComponent(email)})`
-    window.location.href = `mailto:rahul860152gupta@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`
+    window.location.href = `mailto:aditya.gupta.sde26@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`
     setSent(true)
     setTimeout(() => setSent(false), 4000)
   }

@@ -8,6 +8,9 @@ import lmsScreenshot from '../assets/LMS.png'
 import invoiceflowScreenshot from '../assets/invoiceflow-screenshot.png'
 import rfqbidScreenshot from '../assets/rfqbid-screenshot.png'
 import calendarGif from '../assets/calander.gif'
+import hintroIntro from '../assets/Hintro-intro.png'
+import hintroLogin from '../assets/Hintro-login.png'
+import hintroHome from '../assets/Hintro-home.png'
 import taskflowDashboard from '../assets/taskflow-dashboard.png'
 import taskflowLogin from '../assets/taskflow-login.png'
 import invoiceflowVideo from '../assets/invoiceflow-demo.mov'
@@ -43,6 +46,23 @@ const projects = [
     video: taskflowVideo,
     repo: 'https://github.com/adityaragaai/TaskMBackend',
     live: 'https://algotaskflow.vercel.app/dashboard',
+  },
+  {
+    name: 'Hintro — Video Introduction Platform',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.696 0.17 162.48)',
+    desc: 'Full-stack platform where users record short video introductions to make human connections before meetings. Features video upload, playback, user auth, and a clean onboarding flow built with React and Node.js.',
+    progress: 90,
+    tags: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
+    stars: 8,
+    commit: '2025 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.696 0.17 162.48)',
+    archived: false,
+    images: [hintroIntro, hintroHome, hintroLogin],
+    repo: 'https://github.com/Adityaguptawebdev/Hintro_fronend',
+    repoBack: 'https://github.com/Adityaguptawebdev/Hintro_backend',
+    live: 'https://hintro-fronend-b2iz.vercel.app/',
   },
   {
     name: 'JTG Eats — Frontend Mockup',
@@ -337,7 +357,7 @@ export default function Projects() {
           <div className="flex items-center gap-3">
             <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5">
-              11 shipped
+              12 shipped
             </span>
           </div>
           <p className="text-[#a1a1a1] text-sm leading-5">Production systems &amp; live deployments</p>
