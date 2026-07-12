@@ -11,6 +11,11 @@ import calendarGif from '../assets/calander.gif'
 import hintroIntro from '../assets/Hintro-intro.png'
 import hintroLogin from '../assets/Hintro-login.png'
 import hintroHome from '../assets/Hintro-home.png'
+import foodHome from '../assets/FoodHome.png'
+import foodImpact from '../assets/foodImpact.png'
+import foodLeaderboard from '../assets/foodLeaderbord.png'
+import foodLogin from '../assets/foodLogin.png'
+import foodMyDonation from '../assets/foodMyDonation.png'
 import taskflowDashboard from '../assets/taskflow-dashboard.png'
 import taskflowLogin from '../assets/taskflow-login.png'
 import invoiceflowVideo from '../assets/invoiceflow-demo.mov'
@@ -46,6 +51,23 @@ const projects = [
     video: taskflowVideo,
     repo: 'https://github.com/adityaragaai/TaskMBackend',
     live: 'https://algotaskflow.vercel.app/dashboard',
+  },
+  {
+    name: 'FoodSaver — Surplus Food to NGOs',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.696 0.17 162.48)',
+    desc: 'Full-stack platform connecting restaurants and individuals with surplus food to nearby NGOs and volunteers. Features role-based auth (donor/NGO/volunteer), live donation feed, claim flow, impact charts, gamified leaderboard, and AI-assisted listing via Gemini.',
+    progress: 90,
+    tags: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'Node.js', 'MongoDB'],
+    stars: 5,
+    commit: '2025 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.696 0.17 162.48)',
+    archived: false,
+    images: [foodHome, foodLogin, foodMyDonation, foodImpact, foodLeaderboard],
+    repo: 'https://github.com/Adityaguptawebdev/FoodSaver_frontend',
+    repoBack: 'https://github.com/Adityaguptawebdev/FoodSaver_backend',
+    live: 'https://food-saver-frontend-seven.vercel.app/',
   },
   {
     name: 'Hintro — Video Introduction Platform',
@@ -357,7 +379,7 @@ export default function Projects() {
           <div className="flex items-center gap-3">
             <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5">
-              12 shipped
+              13 shipped
             </span>
           </div>
           <p className="text-[#a1a1a1] text-sm leading-5">Production systems &amp; live deployments</p>
