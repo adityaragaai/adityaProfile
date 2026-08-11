@@ -67,7 +67,7 @@ const projects = [
     images: [foodHome, foodLogin, foodMyDonation, foodImpact, foodLeaderboard],
     repo: 'https://github.com/Adityaguptawebdev/FoodSaver_frontend',
     repoBack: 'https://github.com/Adityaguptawebdev/FoodSaver_backend',
-    live: 'https://food-saver-frontend-seven.vercel.app/',
+    live: 'https://donateforgood.vercel.app/',
   },
   {
     name: 'Hintro — Video Introduction Platform',
