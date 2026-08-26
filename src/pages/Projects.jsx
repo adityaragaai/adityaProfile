@@ -23,6 +23,8 @@ import taskflowVideo from '../assets/taskflow.mov'
 import appleVideo from '../assets/apple.mov'
 import joshVideo from '../assets/josh.mov'
 import aiSafetyVideo from '../assets/AISEFTY.mov'
+import vedaaiHome from '../assets/vedaAIHome.png'
+import vedaaiResult from '../assets/vedaai-result.png'
 
 import TECH_ICONS from '../lib/techIcons'
 
@@ -35,6 +37,22 @@ function GithubIcon({ className }) {
 }
 
 const projects = [
+  {
+    name: 'VedaAI — AI Exam Grader',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.696 0.17 162.48)',
+    desc: 'Upload a question paper and a student\'s handwritten answer sheet — the app extracts every question (including lettered sub-parts like 11(a)/11(b)), reads the handwriting, maps each answer back to its question even when written out of order or spanning multiple pages, and highlights the exact handwritten region on the original scanned page. AI grading (marks + feedback) is included and can be toggled off. Verified end-to-end against the live Gemini API.',
+    progress: 96,
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'Gemini AI'],
+    stars: null,
+    commit: '2026 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.696 0.17 162.48)',
+    archived: false,
+    images: [vedaaiHome, vedaaiResult],
+    repo: 'https://github.com/Adityaguptawebdev/vedaai-fullstack-assignment',
+    live: 'https://vedaai-exams.vercel.app/',
+  },
   {
     name: 'AlgoTaskFlow — Task Manager',
     status: 'PRODUCTION',
