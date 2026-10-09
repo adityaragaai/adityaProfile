@@ -101,11 +101,11 @@ export default function Education() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <h1 className="font-bold text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Education</h1>
-            <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.7_0.18_264)] font-mono rounded-full text-xs leading-4 px-2.5 py-0.5">
+            <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[var(--accent-blue-soft)] font-mono rounded-full text-xs leading-4 px-2.5 py-0.5">
               BTech CSE
             </span>
           </div>
-          <p className="text-[#a1a1a1] text-sm leading-5">{`Academic build logs · certifications & continuous learning`}</p>
+          <p className="text-[var(--text-secondary)] text-sm leading-5">{`Academic build logs · certifications & continuous learning`}</p>
         </div>
         <a
           href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
@@ -121,28 +121,28 @@ export default function Education() {
 
       {/* Stat Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 mb-6 md:mb-8 gap-3 md:gap-4">
-        <Card className="bg-neutral-900 border-0 border-solid p-5 gap-3">
+        <Card className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
-              <span className="font-mono text-[#a1a1a1] text-[10px] tracking-widest">DEGREE</span>
-              <BookOpen className="size-3.5 text-[#a1a1a1]" />
+              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">DEGREE</span>
+              <BookOpen className="size-3.5 text-[var(--text-secondary)]" />
             </div>
           </CardHeader>
           <CardContent className="p-0 gap-1">
             <div className="font-bold text-2xl leading-8">B.Tech</div>
-            <span className="text-[#a1a1a1] text-xs leading-4">Computer Science Engg.</span>
+            <span className="text-[var(--text-secondary)] text-xs leading-4">Computer Science Engg.</span>
           </CardContent>
         </Card>
-        <Card className="bg-neutral-900 border-0 border-solid p-5 gap-3">
+        <Card className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
-              <span className="font-mono text-[#a1a1a1] text-[10px] tracking-widest">EXPERIENCE</span>
-              <TrendingUp className="size-3.5 text-[#a1a1a1]" />
+              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">EXPERIENCE</span>
+              <TrendingUp className="size-3.5 text-[var(--text-secondary)]" />
             </div>
           </CardHeader>
           <CardContent className="p-0 gap-1">
             <div className="font-bold text-2xl leading-8">
-              15<span className="text-[#a1a1a1] text-base leading-6"> mo</span>
+              15<span className="text-[var(--text-secondary)] text-base leading-6"> mo</span>
             </div>
             <span className="text-[oklch(0.696_0.17_162.48)] text-xs leading-4 flex items-center gap-1">
               <Award className="size-3" />
@@ -150,23 +150,23 @@ export default function Education() {
             </span>
           </CardContent>
         </Card>
-        <Card className="bg-neutral-900 border-0 border-solid p-5 gap-3">
+        <Card className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
-              <span className="font-mono text-[#a1a1a1] text-[10px] tracking-widest">CERTIFICATIONS</span>
-              <Layers className="size-3.5 text-[#a1a1a1]" />
+              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">CERTIFICATIONS</span>
+              <Layers className="size-3.5 text-[var(--text-secondary)]" />
             </div>
           </CardHeader>
           <CardContent className="p-0 gap-1">
             <div className="font-bold text-2xl leading-8">4</div>
-            <span className="text-[#a1a1a1] text-xs leading-4">Infosys · NPTEL · Microsoft · PW</span>
+            <span className="text-[var(--text-secondary)] text-xs leading-4">Infosys · NPTEL · Microsoft · PW</span>
           </CardContent>
         </Card>
-        <Card className="bg-neutral-900 border-0 border-solid p-5 gap-3">
+        <Card className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
-              <span className="font-mono text-[#a1a1a1] text-[10px] tracking-widest">EXPECTED</span>
-              <CalendarClock className="size-3.5 text-[#a1a1a1]" />
+              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">EXPECTED</span>
+              <CalendarClock className="size-3.5 text-[var(--text-secondary)]" />
             </div>
           </CardHeader>
           <CardContent className="p-0 gap-1">
@@ -183,10 +183,10 @@ export default function Education() {
           <div className="flex mb-1 items-center gap-2">
             <GitBranch className="size-4 text-[oklch(0.696_0.17_162.48)]" />
             <h2 className="font-semibold text-lg leading-7">Academic Timeline</h2>
-            <span className="font-mono rounded-sm bg-neutral-800 text-[#a1a1a1] text-[10px] px-2 py-0.5">edu</span>
+            <span className="font-mono rounded-sm bg-[var(--bg-elevated)] text-[var(--text-secondary)] text-[10px] px-2 py-0.5">edu</span>
           </div>
           {timeline.map((entry) => (
-            <Card key={entry.title} className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+            <Card key={entry.title} className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
               <CardHeader className="p-0 gap-1">
                 <div className="flex justify-between items-start">
                   <div className="flex items-center gap-3">
@@ -206,17 +206,17 @@ export default function Education() {
                           </span>
                         )}
                       </div>
-                      <span className="text-[oklch(0.7_0.18_264)] text-xs leading-4">{entry.institution}</span>
+                      <span className="text-[var(--accent-blue-soft)] text-xs leading-4">{entry.institution}</span>
                     </div>
                   </div>
-                  <span className="font-mono text-[#a1a1a1] text-xs leading-4 shrink-0">{entry.period}</span>
+                  <span className="font-mono text-[var(--text-secondary)] text-xs leading-4 shrink-0">{entry.period}</span>
                 </div>
               </CardHeader>
               <CardContent className="p-0 gap-3">
-                <p className="text-[#a1a1a1] text-sm leading-5">{entry.desc}</p>
+                <p className="text-[var(--text-secondary)] text-sm leading-5">{entry.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {entry.tags.map((tag) => (
-                    <span key={tag} className="rounded-md bg-neutral-800 text-xs leading-4 px-2 py-1">{tag}</span>
+                    <span key={tag} className="rounded-md bg-[var(--bg-elevated)] text-xs leading-4 px-2 py-1">{tag}</span>
                   ))}
                 </div>
               </CardContent>
@@ -228,7 +228,7 @@ export default function Education() {
         <div className="col-span-1 flex flex-col gap-4 md:gap-6">
           {/* Campus Image */}
           <a href="https://www.lpu.in/" target="_blank" rel="noreferrer" className="block">
-            <Card className="bg-neutral-900 border-0 border-solid p-0 gap-0 overflow-hidden hover:ring-1 hover:ring-white/20 transition-all">
+            <Card className="bg-[var(--bg-panel)] border-0 border-solid p-0 gap-0 overflow-hidden hover:ring-1 hover:ring-[var(--line-20)] transition-all">
               <div className="relative w-full h-40">
                 <img
                   src={lpuImg}
@@ -238,14 +238,14 @@ export default function Education() {
                 <div className="bg-gradient-to-t from-neutral-900 to-transparent absolute inset-0" />
                 <div className="flex absolute left-4 bottom-3 items-center gap-2">
                   <MapPin className="size-3.5 text-neutral-50" />
-                  <span className="font-medium text-xs leading-4">Lovely Professional University · Punjab</span>
+                  <span className="font-medium text-xs leading-4 text-neutral-50">Lovely Professional University · Punjab</span>
                 </div>
               </div>
             </Card>
           </a>
 
           {/* Certifications */}
-          <Card className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-2">
               <div className="flex items-center gap-2">
                 <Award className="size-4 text-[oklch(0.769_0.188_70.08)]" />
@@ -257,9 +257,9 @@ export default function Education() {
                 <button
                   key={cert.label}
                   onClick={() => setLightbox(cert)}
-                  className="group flex items-center gap-3 w-full text-left hover:bg-neutral-800 rounded-lg p-1.5 -mx-1.5 transition-colors"
+                  className="group flex items-center gap-3 w-full text-left hover:bg-[var(--bg-elevated)] rounded-lg p-1.5 -mx-1.5 transition-colors"
                 >
-                  <div className="relative size-14 rounded-lg overflow-hidden bg-neutral-800 shrink-0 border border-white/10 group-hover:border-white/20 transition-colors">
+                  <div className="relative size-14 rounded-lg overflow-hidden bg-[var(--bg-elevated)] shrink-0 border border-[var(--line-10)] group-hover:border-[var(--line-20)] transition-colors">
                     <img src={cert.image} alt={cert.label} className="w-full h-full object-cover object-top" />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                       <ZoomIn className="size-4 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -267,7 +267,7 @@ export default function Education() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="text-sm leading-5 text-left">{cert.label}</span>
-                    <span className="font-mono text-[#a1a1a1] text-[11px]">{cert.issued}</span>
+                    <span className="font-mono text-[var(--text-secondary)] text-[11px]">{cert.issued}</span>
                   </div>
                 </button>
               ))}
@@ -275,7 +275,7 @@ export default function Education() {
           </Card>
 
           {/* Honors & Activities */}
-          <Card className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-2">
               <div className="flex items-center gap-2">
                 <Trophy className="size-4 text-[oklch(0.769_0.188_70.08)]" />
@@ -286,7 +286,7 @@ export default function Education() {
               {honors.map((h) => (
                 <div key={h} className="flex items-start gap-2">
                   <Check className="size-3.5 text-[oklch(0.696_0.17_162.48)] mt-0.5 shrink-0" />
-                  <span className="text-[#a1a1a1] text-sm leading-5">{h}</span>
+                  <span className="text-[var(--text-secondary)] text-sm leading-5">{h}</span>
                 </div>
               ))}
               <a
@@ -319,7 +319,7 @@ export default function Education() {
             <img src={lightbox.image} alt={lightbox.label} className="w-full rounded-xl shadow-2xl" />
             <div className="mt-3 text-center">
               <p className="text-neutral-200 font-medium text-sm">{lightbox.label}</p>
-              <p className="text-[#a1a1a1] text-xs mt-0.5">{lightbox.issued}</p>
+              <p className="text-neutral-400 text-xs mt-0.5">{lightbox.issued}</p>
             </div>
           </div>
         </div>

@@ -27,8 +27,8 @@ const FALLBACK = {
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[oklch(0.145_0_0)] border border-white/10 rounded-lg px-3 py-2 text-xs">
-      <p className="text-[#a1a1a1] mb-1 font-mono">#{label}</p>
+    <div className="bg-[var(--bg-inset)] border border-[var(--line-10)] rounded-lg px-3 py-2 text-xs">
+      <p className="text-[var(--text-secondary)] mb-1 font-mono">#{label}</p>
       <p className="text-[oklch(0.769_0.188_70.08)] font-bold">{payload[0].value} pts</p>
     </div>
   )
@@ -48,13 +48,13 @@ export default function ContestAnalytics({ contest: raw, loading }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10 p-5 flex flex-col gap-4"
+      className="bg-[var(--bg-panel)] rounded-2xl border border-[var(--line-10)] p-5 flex flex-col gap-4"
     >
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Trophy className="size-4 text-[oklch(0.769_0.188_70.08)]" />
-          <span className="font-semibold text-neutral-50 text-sm">Contest Analytics</span>
+          <span className="font-semibold text-[var(--text-primary)] text-sm">Contest Analytics</span>
         </div>
         <span className="text-[oklch(0.769_0.188_70.08)] bg-[oklch(0.769_0.188_70.08)]/10 border border-[oklch(0.769_0.188_70.08)]/20 rounded-full text-[10px] px-2 py-0.5">
           {c.attended} attended
@@ -87,7 +87,7 @@ export default function ContestAnalytics({ contest: raw, loading }) {
       {/* Rating chart */}
       {chartData.length > 1 && (
         <div>
-          <p className="text-[#a1a1a1] text-[10px] uppercase tracking-widest mb-2">Rating History</p>
+          <p className="text-[var(--text-secondary)] text-[10px] uppercase tracking-widest mb-2">Rating History</p>
           <ResponsiveContainer width="100%" height={110}>
             <AreaChart data={chartData} margin={{ top: 4, right: 4, left: -32, bottom: 0 }}>
               <defs>
@@ -96,20 +96,20 @@ export default function ContestAnalytics({ contest: raw, loading }) {
                   <stop offset="100%" stopColor="oklch(0.769 0.188 70.08)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--line-5)" vertical={false} />
               <XAxis
                 dataKey="label"
-                tick={{ fontSize: 9, fill: '#a1a1a1' }}
+                tick={{ fontSize: 9, fill: 'var(--text-secondary)' }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fontSize: 9, fill: '#a1a1a1' }}
+                tick={{ fontSize: 9, fill: 'var(--text-secondary)' }}
                 axisLine={false}
                 tickLine={false}
                 domain={['auto', 'auto']}
               />
-              <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(255,255,255,0.1)', strokeWidth: 1 }} />
+              <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'var(--line-10)', strokeWidth: 1 }} />
               <ReferenceLine
                 y={c.rating}
                 stroke="oklch(0.769 0.188 70.08)"
@@ -136,26 +136,26 @@ export default function ContestAnalytics({ contest: raw, loading }) {
 function StatBox({ icon, label, value, accent, big }) {
   return (
     <div
-      className="rounded-xl p-3 flex flex-col gap-1 border border-white/5"
-      style={{ background: `color-mix(in oklch, ${accent} 6%, oklch(0.145 0 0))` }}
+      className="rounded-xl p-3 flex flex-col gap-1 border border-[var(--line-5)]"
+      style={{ background: `color-mix(in oklch, ${accent} 6%, var(--bg-inset))` }}
     >
       <div className="flex items-center gap-1.5">
         {icon}
-        <span className="text-[#a1a1a1] text-[10px] uppercase tracking-wider">{label}</span>
+        <span className="text-[var(--text-secondary)] text-[10px] uppercase tracking-wider">{label}</span>
       </div>
-      <p className={`font-bold text-neutral-50 ${big ? 'text-2xl' : 'text-sm'} leading-tight`}>{value}</p>
+      <p className={`font-bold text-[var(--text-primary)] ${big ? 'text-2xl' : 'text-sm'} leading-tight`}>{value}</p>
     </div>
   )
 }
 
 function ContestSkeleton() {
   return (
-    <div className="bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10 p-5 animate-pulse flex flex-col gap-4">
-      <div className="h-4 bg-[oklch(0.269_0_0)] rounded w-1/3" />
+    <div className="bg-[var(--bg-panel)] rounded-2xl border border-[var(--line-10)] p-5 animate-pulse flex flex-col gap-4">
+      <div className="h-4 bg-[var(--bg-elevated)] rounded w-1/3" />
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        {[0,1,2].map(i => <div key={i} className="h-16 bg-[oklch(0.269_0_0)] rounded-xl" />)}
+        {[0,1,2].map(i => <div key={i} className="h-16 bg-[var(--bg-elevated)] rounded-xl" />)}
       </div>
-      <div className="h-28 bg-[oklch(0.269_0_0)] rounded-xl" />
+      <div className="h-28 bg-[var(--bg-elevated)] rounded-xl" />
     </div>
   )
 }

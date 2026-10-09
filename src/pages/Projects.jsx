@@ -25,6 +25,10 @@ import joshVideo from '../assets/josh.mov'
 import aiSafetyVideo from '../assets/AISEFTY.mov'
 import vedaaiHome from '../assets/vedaAIHome.png'
 import vedaaiResult from '../assets/vedaai-result.png'
+import ivyOverview from '../assets/ivy-overview.jpg'
+import ivyInsurance from '../assets/ivy-insurance.jpg'
+import ivyEstimate from '../assets/ivy-estimate.jpg'
+import ivyNext from '../assets/ivy-next.jpg'
 
 import TECH_ICONS from '../lib/techIcons'
 
@@ -104,6 +108,22 @@ const projects = [
     images: [vedaaiHome, vedaaiResult],
     repo: 'https://github.com/Adityaguptawebdev/vedaai-fullstack-assignment',
     live: 'https://vedaai-exams.vercel.app/',
+  },
+  {
+    name: 'Ivy — Healthcare Cost Assistant',
+    type: 'assignment',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.488 0.243 264.376)',
+    desc: 'Cross-platform mobile app (Android · iOS · Web) that takes a patient from a photo of their insurance card to a personalized out-of-pocket estimate for an allergy & immunology visit. Card OCR, live eligibility checks, an Ivy assistant that turns free-text symptoms into a visit type, in-network clinic search with side-by-side cost comparison and savings, deductible / OOP-max impact, and on-device PDF export — with PHI-safe sessions and accessibility built in.',
+    progress: 100,
+    tags: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Reanimated'],
+    stars: null,
+    commit: '2026 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.488 0.243 264.376)',
+    archived: false,
+    images: [ivyOverview, ivyInsurance, ivyEstimate, ivyNext],
+    repo: 'https://github.com/Adityaguptawebdev/ivy-health-app',
   },
   {
     name: 'JTG Eats — Frontend Mockup',
@@ -322,16 +342,18 @@ function ImageCarousel({ images, repo, live, repoBack, statusColor }) {
             <GithubIcon className="size-3.5" /> GitHub
           </a>
         )}
-        <a href={live} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()}
-          className="relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
-          style={{
-            backgroundColor: `color-mix(in oklch, ${statusColor} 25%, rgba(0,0,0,0.7))`,
-            color: 'white',
-            border: `1px solid color-mix(in oklch, ${statusColor} 50%, transparent)`,
-          }}
-        >
-          <ExternalLink className="size-3" /> Live
-        </a>
+        {live && (
+          <a href={live} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()}
+            className="relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
+            style={{
+              backgroundColor: `color-mix(in oklch, ${statusColor} 25%, rgba(0,0,0,0.7))`,
+              color: 'white',
+              border: `1px solid color-mix(in oklch, ${statusColor} 50%, transparent)`,
+            }}
+          >
+            <ExternalLink className="size-3" /> Live
+          </a>
+        )}
       </div>
 
       {images.length > 1 && (
@@ -368,7 +390,7 @@ const MAIN_FILTERS = [
 ]
 
 const PILL_COLORS = {
-  all:        { bg: 'rgb(250 250 250)', text: 'rgb(10 10 10)' },
+  all:        { bg: 'var(--invert-bg)', text: 'var(--invert-text)' },
   production: { bg: 'oklch(0.696 0.17 162.48)', text: 'white' },
   beta:       { bg: 'oklch(0.769 0.188 70.08)', text: 'white' },
   design:     { bg: 'rgb(163 163 163)', text: 'rgb(10 10 10)' },
@@ -396,18 +418,18 @@ export default function Projects() {
       <div className="flex justify-between items-start gap-3">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
+            <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5">
-              13 shipped
+              {projects.filter(p => p.status === 'PRODUCTION').length} shipped
             </span>
           </div>
-          <p className="text-[#a1a1a1] text-sm leading-5">Production systems &amp; live deployments</p>
+          <p className="text-[var(--text-secondary)] text-sm leading-5">Production systems &amp; live deployments</p>
         </div>
         <a
           href="https://github.com/Adityaguptawebdev"
           target="_blank"
           rel="noreferrer"
-          className="shrink-0 transition-colors font-semibold rounded-lg bg-neutral-200 hover:bg-white text-neutral-900 text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-2"
+          className="shrink-0 transition-colors font-semibold rounded-lg bg-[var(--invert-bg)] hover:opacity-90 text-[var(--invert-text)] text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-2"
         >
           <Plus className="size-3.5" />
           <span className="hidden sm:inline">View </span>GitHub
@@ -416,7 +438,7 @@ export default function Projects() {
 
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center gap-2">
-        <div className="relative flex items-center gap-1 bg-neutral-800/50 border border-white/10 rounded-full p-1 shrink-0">
+        <div className="relative flex items-center gap-1 bg-[var(--bg-elevated)]/50 border border-[var(--line-10)] rounded-full p-1 shrink-0">
           <span
             className="absolute top-1 bottom-1 rounded-full pointer-events-none"
             style={{
@@ -435,7 +457,7 @@ export default function Projects() {
                 ref={el => { btnRefs.current[i] = el }}
                 onClick={() => setActiveFilter(f.key)}
                 className="relative z-10 font-medium rounded-full text-xs leading-4 px-3 md:px-4 py-1.5 transition-colors duration-200"
-                style={{ color: isActive ? PILL_COLORS[f.key].text : '#a1a1a1' }}
+                style={{ color: isActive ? PILL_COLORS[f.key].text : 'var(--text-secondary)' }}
               >
                 {f.label}
               </button>
@@ -443,7 +465,7 @@ export default function Projects() {
           })}
         </div>
 
-        <span className="w-px h-5 bg-white/10 rounded-full shrink-0 hidden sm:block" />
+        <span className="w-px h-5 bg-[var(--line-10)] rounded-full shrink-0 hidden sm:block" />
 
         <style>{`
           @keyframes companyGlow {
@@ -496,8 +518,8 @@ export default function Projects() {
             key={project.name}
             className="flex flex-col rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
             style={{
-              backgroundColor: 'rgb(18 18 20)',
-              border: '1px solid rgba(255,255,255,0.07)',
+              backgroundColor: 'var(--bg-panel)',
+              border: '1px solid var(--line-8)',
             }}
           >
             {/* Colored top accent */}
@@ -508,7 +530,7 @@ export default function Projects() {
               <div className="flex justify-between items-start gap-2">
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="size-2 rounded-full shrink-0" style={{ backgroundColor: project.statusColor }} />
-                  <span className="font-semibold text-neutral-50 text-sm leading-5 truncate">{project.name}</span>
+                  <span className="font-semibold text-[var(--text-primary)] text-sm leading-5 truncate">{project.name}</span>
                 </div>
                 <div className="flex items-center gap-1.5 shrink-0">
                   {project.type === 'assignment' && (
@@ -523,15 +545,15 @@ export default function Projects() {
                   <span className="font-mono rounded-full text-[9px] font-semibold px-2 py-0.5"
                     style={{
                       color: project.statusColor,
-                      backgroundColor: project.archived ? 'rgb(28 28 28)' : `color-mix(in oklch, ${project.statusColor} 10%, transparent)`,
-                      border: `1px solid ${project.archived ? 'rgba(255,255,255,0.08)' : `color-mix(in oklch, ${project.statusColor} 20%, transparent)`}`,
+                      backgroundColor: project.archived ? 'var(--bg-elevated)' : `color-mix(in oklch, ${project.statusColor} 10%, transparent)`,
+                      border: `1px solid ${project.archived ? 'var(--line-8)' : `color-mix(in oklch, ${project.statusColor} 20%, transparent)`}`,
                     }}
                   >{project.status}</span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-[#a1a1a1] text-xs leading-5">{project.desc}</p>
+              <p className="text-[var(--text-secondary)] text-xs leading-5">{project.desc}</p>
 
               {/* Video (autoplay) or image carousel */}
               {project.video ? (
@@ -606,12 +628,12 @@ export default function Projects() {
               <div className="flex-1" />
 
               {/* Footer */}
-              <div className="flex items-center gap-3 pt-3 border-t border-white/[0.06]">
-                <span className="text-[#a1a1a1] text-[10px] flex items-center gap-1">
+              <div className="flex items-center gap-3 pt-3 border-t border-[var(--line-6)]">
+                <span className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
                   <Star className="size-3 text-[oklch(0.769_0.188_70.08)]" />
                   {project.stars ?? 'Assignment'}
                 </span>
-                <span className="font-mono text-[#a1a1a1] text-[10px] flex items-center gap-1">
+                <span className="font-mono text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
                   <GitCommit className="size-3" />
                   {project.commit}
                 </span>
@@ -621,12 +643,12 @@ export default function Projects() {
                   {project.repoBack && (
                     <>
                       <a href={project.repo} target="_blank" rel="noreferrer"
-                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-[10px] font-medium transition-colors border border-white/10"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated-2)] text-[var(--text-secondary)] text-[10px] font-medium transition-colors border border-[var(--line-10)]"
                       >
                         <GithubIcon className="size-3" /> Frontend
                       </a>
                       <a href={project.repoBack} target="_blank" rel="noreferrer"
-                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-[10px] font-medium transition-colors border border-white/10"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated-2)] text-[var(--text-secondary)] text-[10px] font-medium transition-colors border border-[var(--line-10)]"
                       >
                         <GithubIcon className="size-3" /> Backend
                       </a>
@@ -647,7 +669,7 @@ export default function Projects() {
                   {!project.repoBack && (!project.images || project.images.length === 0) && (
                     <>
                       <a href={project.repo} target="_blank" rel="noreferrer"
-                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-[10px] font-medium transition-colors border border-white/10"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated-2)] text-[var(--text-secondary)] text-[10px] font-medium transition-colors border border-[var(--line-10)]"
                       >
                         <GithubIcon className="size-3" /> GitHub
                       </a>
@@ -675,10 +697,16 @@ export default function Projects() {
 
                   {/* Has image, no repoBack */}
                   {!project.repoBack && project.images && project.images.length > 0 && (
-                    project.archived ? (
-                      <span className="text-[#a1a1a1] text-[10px] flex items-center gap-1">
+                    !project.live ? (
+                      <a href={project.repo} target="_blank" rel="noreferrer"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated-2)] text-[var(--text-secondary)] text-[10px] font-medium transition-colors border border-[var(--line-10)]"
+                      >
+                        <GithubIcon className="size-3" /> GitHub
+                      </a>
+                    ) : project.archived ? (
+                      <span className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
                         <Archive className="size-3" />
-                        <a href={project.live} target="_blank" rel="noreferrer" className="hover:text-neutral-300 transition-colors">View</a>
+                        <a href={project.live} target="_blank" rel="noreferrer" className="hover:text-[var(--text-primary)] transition-colors">View</a>
                       </span>
                     ) : (
                       <a href={project.live} target="_blank" rel="noreferrer"

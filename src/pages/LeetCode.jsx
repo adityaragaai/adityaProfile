@@ -21,8 +21,8 @@ export default function LeetCode() {
             <Code2 className="size-4 text-[oklch(0.769_0.188_70.08)]" />
           </div>
           <div>
-            <h1 className="font-bold text-neutral-50 text-sm leading-tight">LeetCode Stats</h1>
-            <p className="text-[#a1a1a1] text-[10px]">
+            <h1 className="font-bold text-[var(--text-primary)] text-sm leading-tight">LeetCode Stats</h1>
+            <p className="text-[var(--text-secondary)] text-[10px]">
               {lastUpdated
                 ? `Updated ${lastUpdated.toLocaleTimeString()}`
                 : 'Fetching live data…'}
@@ -33,7 +33,7 @@ export default function LeetCode() {
           href={`https://leetcode.com/u/${USERNAME}/`}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-1.5 text-xs text-[#a1a1a1] hover:text-neutral-50 transition-colors border border-white/10 rounded-lg px-3 py-1.5"
+          className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors border border-[var(--line-10)] rounded-lg px-3 py-1.5"
         >
           <ExternalLink className="size-3" />
           View Profile

@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Activity, RefreshCw } from 'lucide-react'
+import { useTheme } from '../hooks/useTheme'
 
-const GH_COLORS    = ['#1e2a1e', '#0e4429', '#006d32', '#26a641', '#39d353']
+const GH_COLORS_DARK  = ['#1e2a1e', '#0e4429', '#006d32', '#26a641', '#39d353']
+const GH_COLORS_LIGHT = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
 const MONTH_LABELS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 const DAY_LABELS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
 
@@ -58,10 +60,10 @@ function buildWeeks(contributions, weeksCount = 18) {
   return weeks
 }
 
-function HeatCell({ day, size = 12 }) {
+function HeatCell({ day, size = 12, colors }) {
   const [tip, setTip] = useState(false)
   if (!day) return <div style={{ width: size, height: size, margin: 1.5 }} />
-  const color = GH_COLORS[day.level ?? 0]
+  const color = colors[day.level ?? 0]
   const label = day.date
     ? new Date(day.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
     : ''
@@ -75,10 +77,10 @@ function HeatCell({ day, size = 12 }) {
       />
       {tip && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 z-50 pointer-events-none
-                        bg-[oklch(0.145_0_0)] border border-white/20 rounded-lg px-2 py-1
+                        bg-[var(--bg-inset)] border border-[var(--line-20)] rounded-lg px-2 py-1
                         text-[9px] whitespace-nowrap shadow-xl">
-          <span className="text-neutral-50 font-semibold">{day.count}</span>
-          <span className="text-[#a1a1a1]"> · {label}</span>
+          <span className="text-[var(--text-primary)] font-semibold">{day.count}</span>
+          <span className="text-[var(--text-secondary)]"> · {label}</span>
         </div>
       )}
     </div>
@@ -86,6 +88,8 @@ function HeatCell({ day, size = 12 }) {
 }
 
 export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 18 }) {
+  const { theme } = useTheme()
+  const GH_COLORS = theme === 'light' ? GH_COLORS_LIGHT : GH_COLORS_DARK
   const { contributions, total, loading, refresh } = useContributions(username)
   const weeks = buildWeeks(contributions, weeksCount)
 
@@ -105,13 +109,13 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Activity className="size-4 text-[oklch(0.696_0.17_162.48)]" />
-          <span className="font-semibold text-neutral-50 text-sm leading-5">Commit Activity</span>
+          <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Commit Activity</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[#a1a1a1] text-[10px]">
-            {loading ? '…' : <><span className="text-neutral-50 font-medium">{total}</span> this year</>}
+          <span className="text-[var(--text-secondary)] text-[10px]">
+            {loading ? '…' : <><span className="text-[var(--text-primary)] font-medium">{total}</span> this year</>}
           </span>
-          <button onClick={refresh} className="text-[#a1a1a1] hover:text-neutral-50 transition-colors">
+          <button onClick={refresh} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
             <RefreshCw className={`size-3 ${loading ? 'animate-spin' : ''}`} />
           </button>
         </div>
@@ -119,7 +123,7 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
 
       {/* Grid */}
       {loading ? (
-        <div className="h-24 bg-[oklch(0.269_0_0)] rounded-lg animate-pulse" />
+        <div className="h-24 bg-[var(--bg-elevated)] rounded-lg animate-pulse" />
       ) : (
         <div className="overflow-x-auto">
           <div className="inline-flex flex-col gap-0" style={{ minWidth: 'max-content' }}>
@@ -128,7 +132,7 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
               {weeks.map((_, wi) => {
                 const mp = monthPositions.find(m => m.wi === wi)
                 return (
-                  <div key={wi} style={{ width: 15 }} className="text-[9px] text-[#a1a1a1]">
+                  <div key={wi} style={{ width: 15 }} className="text-[9px] text-[var(--text-secondary)]">
                     {mp?.label || ''}
                   </div>
                 )
@@ -138,7 +142,7 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
             <div className="flex gap-0">
               <div className="flex flex-col mr-0.5">
                 {DAY_LABELS.map((d, i) => (
-                  <div key={i} className="text-[8px] text-[#a1a1a1] flex items-center justify-end pr-1"
+                  <div key={i} className="text-[8px] text-[var(--text-secondary)] flex items-center justify-end pr-1"
                     style={{ height: 15, lineHeight: 1 }}>
                     {i === 1 || i === 3 || i === 5 ? d : ''}
                   </div>
@@ -146,7 +150,7 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
               </div>
               {weeks.map((week, wi) => (
                 <div key={wi} className="flex flex-col">
-                  {week.map((day, di) => <HeatCell key={di} day={day} size={12} />)}
+                  {week.map((day, di) => <HeatCell key={di} day={day} size={12} colors={GH_COLORS} />)}
                 </div>
               ))}
             </div>
@@ -157,11 +161,11 @@ export default function CommitHeatmap({ username = 'adityaragaai', weeksCount = 
       {/* Legend */}
       {!loading && (
         <div className="flex items-center justify-end gap-1 mt-0.5">
-          <span className="text-[8px] text-[#a1a1a1]">Less</span>
+          <span className="text-[8px] text-[var(--text-secondary)]">Less</span>
           {GH_COLORS.map((c, i) => (
-            <div key={i} style={{ width: 10, height: 10, backgroundColor: c, borderRadius: 2, border: '1px solid rgba(255,255,255,0.05)' }} />
+            <div key={i} style={{ width: 10, height: 10, backgroundColor: c, borderRadius: 2, border: '1px solid var(--line-5)' }} />
           ))}
-          <span className="text-[8px] text-[#a1a1a1]">More</span>
+          <span className="text-[8px] text-[var(--text-secondary)]">More</span>
         </div>
       )}
     </div>

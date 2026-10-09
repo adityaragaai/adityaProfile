@@ -5,8 +5,8 @@ export function Button({ className, variant = 'default', children, ...props }) {
     <button
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-colors px-4 py-2',
-        variant === 'outline' && 'border border-white/10 bg-transparent text-neutral-50',
-        variant === 'default' && 'bg-neutral-200 text-neutral-900',
+        variant === 'outline' && 'border border-[var(--line-10)] bg-transparent text-[var(--text-primary)]',
+        variant === 'default' && 'bg-[var(--invert-bg)] text-[var(--invert-text)]',
         className
       )}
       {...props}

@@ -1,5 +1,82 @@
 @import "tailwindcss";
 
+/* ─── Theme tokens ──────────────────────────────────────────────────────────
+   Dark is the default look (matches the original design). Adding class
+   "light" to <html> switches every token below to its light-mode value.
+   Components reference these via arbitrary-value classes, e.g. bg-[var(--bg-panel)],
+   so no dark: variants are needed anywhere. */
+:root {
+  --bg-app: oklch(0.145 0 0);
+  --bg-panel: oklch(0.205 0 0);
+  --bg-elevated: oklch(0.269 0 0);
+  --bg-elevated-2: oklch(0.371 0 0);
+  --bg-inset: oklch(0.145 0 0);
+
+  --text-primary: oklch(0.985 0 0);
+  --text-secondary: oklch(0.708 0 0);
+  --text-tertiary: oklch(0.556 0 0);
+
+  --line-3: rgba(255, 255, 255, 0.03);
+  --line-4: rgba(255, 255, 255, 0.04);
+  --line-5: rgba(255, 255, 255, 0.05);
+  --line-6: rgba(255, 255, 255, 0.06);
+  --line-8: rgba(255, 255, 255, 0.08);
+  --line-10: rgba(255, 255, 255, 0.1);
+  --line-15: rgba(255, 255, 255, 0.15);
+  --line-20: rgba(255, 255, 255, 0.2);
+
+  --invert-bg: oklch(0.922 0 0);
+  --invert-text: oklch(0.205 0 0);
+
+  --accent-emerald: oklch(0.696 0.17 162.48);
+  --accent-amber: oklch(0.769 0.188 70.08);
+  --accent-violet: oklch(0.627 0.265 303.9);
+  --accent-red: oklch(0.704 0.191 22.216);
+  --accent-blue-soft: oklch(0.7 0.18 264);
+}
+
+:root.light {
+  --bg-app: oklch(0.97 0 0);
+  --bg-panel: oklch(1 0 0);
+  --bg-elevated: oklch(0.94 0 0);
+  --bg-elevated-2: oklch(0.87 0 0);
+  --bg-inset: oklch(0.922 0 0);
+
+  --text-primary: oklch(0.205 0 0);
+  --text-secondary: oklch(0.439 0 0);
+  --text-tertiary: oklch(0.556 0 0);
+
+  --line-3: rgba(0, 0, 0, 0.035);
+  --line-4: rgba(0, 0, 0, 0.04);
+  --line-5: rgba(0, 0, 0, 0.05);
+  --line-6: rgba(0, 0, 0, 0.055);
+  --line-8: rgba(0, 0, 0, 0.07);
+  --line-10: rgba(0, 0, 0, 0.08);
+  --line-15: rgba(0, 0, 0, 0.12);
+  --line-20: rgba(0, 0, 0, 0.15);
+
+  --invert-bg: oklch(0.205 0 0);
+  --invert-text: oklch(0.985 0 0);
+
+  --accent-emerald: oklch(0.5 0.15 162);
+  --accent-amber: oklch(0.55 0.17 65);
+  --accent-violet: oklch(0.5 0.22 303);
+  --accent-red: oklch(0.55 0.2 25);
+  --accent-blue-soft: oklch(0.42 0.16 264);
+}
+
+html {
+  background: var(--bg-app);
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
+}
+body {
+  background: var(--bg-app);
+  color: var(--text-primary);
+}
+
 /* Hide scrollbar utility */
 .scrollbar-none {
   scrollbar-width: none;

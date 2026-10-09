@@ -13,6 +13,7 @@ const TECH_ICONS = {
   'React':        iconMap['React'],
   'React 19':     iconMap['React'],
   'React.js':     iconMap['React'],
+  'React Native': iconMap['React'],
 
   // TypeScript
   'TypeScript':   iconMap['TypeScript'],
