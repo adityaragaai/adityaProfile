@@ -41,7 +41,7 @@ function YoutubeIcon({ className }) {
 }
 
 const socials = [
-  { label: 'GitHub',   handle: '@Adityaguptawebdev',           href: 'https://github.com/Adityaguptawebdev',      Icon: GithubIcon,   color: 'oklch(0.922 0 0)',          bg: 'oklch(0.922 0 0)' },
+  { label: 'GitHub',   handle: '@Adityaguptawebdev',           href: 'https://github.com/Adityaguptawebdev',      Icon: GithubIcon,   color: 'var(--invert-bg)',          bg: 'var(--invert-bg)' },
   { label: 'LinkedIn', handle: '@adityagupta-swe',              href: 'https://www.linkedin.com/in/adityagupta-swe/',   Icon: LinkedinIcon, color: 'white',                      bg: 'oklch(0.488 0.243 264.376)', bgImage: linkedinBg },
   { label: 'YouTube',  handle: '@AlgoStrive',                  href: 'https://youtu.be/E3hUmiRxPxg?si=9Dv9-4nkeKjc9W4s',       Icon: YoutubeIcon,  color: 'white',                      bg: 'oklch(0.627 0.265 25)', bgImage: youtubeBg },
   { label: 'Email',    handle: 'aditya.gupta.sde26@gmail.com', href: 'mailto:aditya.gupta.sde26@gmail.com',       Icon: Mail,         color: 'oklch(0.696 0.17 162.48)',   bg: 'oklch(0.696 0.17 162.48)' },
@@ -87,15 +87,15 @@ export default function Contact() {
       <div className="flex flex-wrap justify-between items-start gap-2">
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <h1 className="font-bold text-neutral-50 text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Contact</h1>
+            <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Contact</h1>
             <span className="bg-[oklch(0.696_0.17_162.48)]/15 text-[oklch(0.696_0.17_162.48)] border-[oklch(0.696_0.17_162.48)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5 flex items-center gap-1.5">
               <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] rounded-full animate-pulse inline-block" />
               Open to Work
             </span>
           </div>
-          <p className="text-[#a1a1a1] text-sm leading-5">Let's build something great together — reach out anytime</p>
+          <p className="text-[var(--text-secondary)] text-sm leading-5">Let's build something great together — reach out anytime</p>
         </div>
-        <div className="font-mono text-[#a1a1a1] text-[10px] flex items-center gap-2">
+        <div className="font-mono text-[var(--text-secondary)] text-[10px] flex items-center gap-2">
           <Clock className="size-3" />
           Avg. response · &lt; 24hrs
         </div>
@@ -106,20 +106,20 @@ export default function Contact() {
 
         {/* Left — Form + Socials */}
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
-          <Card className="bg-neutral-900 border-white/5 p-6 flex flex-col gap-5">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-5)] p-6 flex flex-col gap-5">
             <CardHeader className="p-0 flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <MessageSquare className="size-4 text-[oklch(0.488_0.243_264.376)]" />
-                <span className="font-semibold text-neutral-50 text-sm">Send a Message</span>
+                <span className="font-semibold text-[var(--text-primary)] text-sm">Send a Message</span>
               </div>
-              <p className="text-[#a1a1a1] text-xs leading-4">Fill out the form and I'll get back to you as soon as possible.</p>
+              <p className="text-[var(--text-secondary)] text-xs leading-4">Fill out the form and I'll get back to you as soon as possible.</p>
             </CardHeader>
 
             <CardContent className="p-0 flex flex-col gap-4">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[#a1a1a1] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
+                    <label className="text-[var(--text-secondary)] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
                       <User className="size-3" /> Name
                     </label>
                     <input
@@ -128,11 +128,11 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Your name"
                       required
-                      className="bg-neutral-800 border border-white/10 focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-neutral-50 text-sm placeholder:text-neutral-600 transition-colors"
+                      className="bg-[var(--bg-elevated)] border border-[var(--line-10)] focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-tertiary)] transition-colors"
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-[#a1a1a1] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
+                    <label className="text-[var(--text-secondary)] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
                       <Mail className="size-3" /> Email
                     </label>
                     <input
@@ -142,13 +142,13 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="you@example.com"
                       required
-                      className="bg-neutral-800 border border-white/10 focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-neutral-50 text-sm placeholder:text-neutral-600 transition-colors"
+                      className="bg-[var(--bg-elevated)] border border-[var(--line-10)] focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-tertiary)] transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#a1a1a1] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
+                  <label className="text-[var(--text-secondary)] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
                     <Zap className="size-3" /> Subject
                   </label>
                   <input
@@ -156,12 +156,12 @@ export default function Contact() {
                     value={form.subject}
                     onChange={handleChange}
                     placeholder="What's this about?"
-                    className="bg-neutral-800 border border-white/10 focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-neutral-50 text-sm placeholder:text-neutral-600 transition-colors"
+                    className="bg-[var(--bg-elevated)] border border-[var(--line-10)] focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-tertiary)] transition-colors"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[#a1a1a1] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
+                  <label className="text-[var(--text-secondary)] text-[11px] font-mono uppercase tracking-wider flex items-center gap-1">
                     <MessageSquare className="size-3" /> Message
                   </label>
                   <textarea
@@ -171,7 +171,7 @@ export default function Contact() {
                     rows={5}
                     placeholder="Tell me about your project, opportunity, or just say hi..."
                     required
-                    className="bg-neutral-800 border border-white/10 focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-neutral-50 text-sm placeholder:text-neutral-600 transition-colors resize-none"
+                    className="bg-[var(--bg-elevated)] border border-[var(--line-10)] focus:border-[oklch(0.488_0.243_264.376)]/60 outline-none rounded-lg px-3 py-2.5 text-[var(--text-primary)] text-sm placeholder:text-[var(--text-tertiary)] transition-colors resize-none"
                   />
                 </div>
 
@@ -195,14 +195,14 @@ export default function Contact() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative bg-neutral-900 rounded-xl overflow-hidden border border-white/5 hover:border-white/20 transition-all hover:-translate-y-0.5"
+                className="group relative bg-[var(--bg-panel)] rounded-xl overflow-hidden border border-[var(--line-5)] hover:border-[var(--line-20)] transition-all hover:-translate-y-0.5"
                 style={{ minHeight: '110px' }}
               >
                 {/* Background image (LinkedIn) */}
                 {bgImage && (
                   <>
                     <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover object-top opacity-30 group-hover:opacity-40 transition-opacity" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/90 via-neutral-900/50 to-neutral-900/20" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--bg-panel), color-mix(in oklch, var(--bg-panel) 50%, transparent), transparent)' }} />
                   </>
                 )}
 
@@ -214,10 +214,10 @@ export default function Contact() {
                     <Icon className="size-4" style={{ color }} />
                   </div>
                   <div className="text-center">
-                    <p className="text-neutral-50 text-xs font-semibold">{label}</p>
-                    <p className="text-[#a1a1a1] text-[10px] truncate max-w-[90px]">{handle}</p>
+                    <p className="text-[var(--text-primary)] text-xs font-semibold">{label}</p>
+                    <p className="text-[var(--text-secondary)] text-[10px] truncate max-w-[90px]">{handle}</p>
                   </div>
-                  <ExternalLink className="size-3 text-[#a1a1a1] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="size-3 text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </a>
             ))}
@@ -228,18 +228,18 @@ export default function Contact() {
         <div className="flex flex-col gap-4">
 
           {/* Availability */}
-          <Card className="bg-neutral-900 border-white/5 p-6 flex flex-col gap-4 overflow-hidden relative">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-5)] p-6 flex flex-col gap-4 overflow-hidden relative">
             <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, oklch(0.696 0.17 162.48), transparent 70%)' }} />
             <CardHeader className="p-0 flex flex-col gap-0">
               <div className="flex items-center gap-2">
                 <Activity className="size-4 text-[oklch(0.696_0.17_162.48)]" />
-                <span className="font-semibold text-neutral-50 text-sm">Availability</span>
+                <span className="font-semibold text-[var(--text-primary)] text-sm">Availability</span>
               </div>
             </CardHeader>
             <CardContent className="p-0 flex flex-col gap-0">
               {availability.map((item) => (
-                <div key={item.label} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
-                  <span className="text-[#a1a1a1] text-xs">{item.label}</span>
+                <div key={item.label} className="flex justify-between items-center py-2 border-b border-[var(--line-5)] last:border-0">
+                  <span className="text-[var(--text-secondary)] text-xs">{item.label}</span>
                   <span
                     className="font-mono text-[10px] px-2 py-0.5 rounded-full"
                     style={{ color: item.color, backgroundColor: `color-mix(in oklch, ${item.color} 12%, transparent)` }}
@@ -252,9 +252,9 @@ export default function Contact() {
           </Card>
 
           {/* Contact Info */}
-          <Card className="bg-neutral-900 border-white/5 p-6 flex flex-col gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-5)] p-6 flex flex-col gap-4">
             <CardHeader className="p-0">
-              <span className="font-semibold text-neutral-50 text-sm">Contact Info</span>
+              <span className="font-semibold text-[var(--text-primary)] text-sm">Contact Info</span>
             </CardHeader>
             <CardContent className="p-0 flex flex-col gap-3">
               {contactInfo.map(({ icon: Icon, label, value, href, color }) => (
@@ -266,10 +266,10 @@ export default function Contact() {
                     <Icon className="size-3.5" style={{ color }} />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="text-[#a1a1a1] text-[10px] font-mono uppercase tracking-wider">{label}</span>
+                    <span className="text-[var(--text-secondary)] text-[10px] font-mono uppercase tracking-wider">{label}</span>
                     {href
-                      ? <a href={href} className="text-neutral-50 text-xs leading-4 hover:underline break-all">{value}</a>
-                      : <span className="text-neutral-50 text-xs leading-4">{value}</span>
+                      ? <a href={href} className="text-[var(--text-primary)] text-xs leading-4 hover:underline break-all">{value}</a>
+                      : <span className="text-[var(--text-primary)] text-xs leading-4">{value}</span>
                     }
                   </div>
                 </div>
@@ -278,7 +278,7 @@ export default function Contact() {
           </Card>
 
           {/* Terminal ping */}
-          <Card className="bg-neutral-900 border-white/5 p-5 flex flex-col gap-0">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-5)] p-5 flex flex-col gap-0">
             <div className="bg-neutral-950 rounded-lg p-3 font-mono text-[10px] flex flex-col gap-1.5">
               <div className="flex gap-1.5 mb-1">
                 <span className="size-2 rounded-full bg-red-500/70" />
@@ -286,7 +286,7 @@ export default function Contact() {
                 <span className="size-2 rounded-full bg-green-500/70" />
               </div>
               <div className="text-[oklch(0.696_0.17_162.48)]">$ ping aditya.dev</div>
-              <div className="text-[#a1a1a1]">PING aditya.dev: 56 bytes of data</div>
+              <div className="text-neutral-400">PING aditya.dev: 56 bytes of data</div>
               <div className="text-neutral-400">64 bytes from aditya: time=2ms</div>
               <div className="text-neutral-400">64 bytes from aditya: time=1ms</div>
               <div className="text-[oklch(0.696_0.17_162.48)]">— aditya.dev ping statistics —</div>

@@ -80,14 +80,14 @@ export default function Experience() {
               4 roles
             </span>
           </div>
-          <p className="text-[#a1a1a1] text-sm leading-5">{`Deployment history · roles & engineering tenures`}</p>
+          <p className="text-[var(--text-secondary)] text-sm leading-5">{`Deployment history · roles & engineering tenures`}</p>
         </div>
         <a
           href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >
-          <Button className="bg-neutral-200 text-neutral-900 gap-2 h-9">
+          <Button className="gap-2 h-9">
             <Download className="size-4" />
             Resume.pdf
           </Button>
@@ -98,14 +98,14 @@ export default function Experience() {
       <div className="grid grid-cols-2 md:grid-cols-4 mb-6 md:mb-8 gap-3 md:gap-4">
         {[
           { label: 'INTERNSHIP', icon: Clock, value: '5 mo', sub: 'RagaAI · SDE Frontend', subColor: 'oklch(0.488 0.243 264.376)' },
-          { label: 'CLIENTS SERVED', icon: Users, value: '10+', sub: 'YouTubers & clients', subColor: '#a1a1a1' },
+          { label: 'CLIENTS SERVED', icon: Users, value: '10+', sub: 'YouTubers & clients', subColor: 'var(--text-secondary)' },
           { label: 'PROJECTS', icon: Rocket, value: '7', sub: 'shipped & live', subColor: 'oklch(0.696 0.17 162.48)' },
           { label: 'CURRENT STATUS', icon: Activity, value: 'Active', sub: 'open to work', subColor: 'oklch(0.696 0.17 162.48)', iconColor: 'oklch(0.696 0.17 162.48)' },
         ].map((stat) => (
-          <Card key={stat.label} className="bg-neutral-900 border-0 border-solid p-5 gap-2">
+          <Card key={stat.label} className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-2">
             <CardHeader className="p-0 flex-row justify-between items-center gap-0">
-              <span className="text-[#a1a1a1] text-[10px] tracking-widest">{stat.label}</span>
-              <stat.icon className="size-3.5" style={{ color: stat.iconColor ?? '#a1a1a1' }} />
+              <span className="text-[var(--text-secondary)] text-[10px] tracking-widest">{stat.label}</span>
+              <stat.icon className="size-3.5" style={{ color: stat.iconColor ?? 'var(--text-secondary)' }} />
             </CardHeader>
             <CardContent className="p-0">
               <div className="font-bold text-2xl leading-8">{stat.value}</div>
@@ -122,10 +122,10 @@ export default function Experience() {
           <div className="flex mb-5 items-center gap-2">
             <GitBranch className="size-4 text-[oklch(0.488_0.243_264.376)]" />
             <h2 className="font-bold text-lg leading-7">Deployment Timeline</h2>
-            <span className="font-mono rounded-full bg-neutral-800 text-[#a1a1a1] text-xs leading-4 px-2 py-0.5">main</span>
+            <span className="font-mono rounded-full bg-[var(--bg-elevated)] text-[var(--text-secondary)] text-xs leading-4 px-2 py-0.5">main</span>
           </div>
           <div className="relative pl-8">
-            <div className="bg-white/10 absolute left-[7px] inset-y-2 w-px" />
+            <div className="bg-[var(--line-10)] absolute left-[7px] inset-y-2 w-px" />
             {jobs.map((job, i) => (
               <div key={job.title} className={`relative ${i < jobs.length - 1 ? 'mb-6' : ''}`}>
                 <div
@@ -135,12 +135,12 @@ export default function Experience() {
                     boxShadow: `0 0 0 4px color-mix(in oklch, ${job.dotColor} 15%, transparent)`,
                   }}
                 />
-                <Card className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+                <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
                   <CardHeader className="p-0 gap-2">
                     <div className="flex justify-between items-start">
                       <div className="flex items-start gap-3">
                         {job.logo && (
-                          <div className={`${job.logoBg ?? 'bg-neutral-800'} rounded-lg p-1.5 flex items-center justify-center shrink-0 mt-0.5`}>
+                          <div className={`${job.logoBg ?? 'bg-[var(--bg-elevated)]'} rounded-lg p-1.5 flex items-center justify-center shrink-0 mt-0.5`}>
                             <img src={job.logo} alt={job.company} className="h-6 w-auto" />
                           </div>
                         )}
@@ -156,14 +156,14 @@ export default function Experience() {
                           <div className="text-[oklch(0.488_0.243_264.376)] font-medium text-sm leading-5">{job.company}</div>
                         </div>
                       </div>
-                      <span className="font-mono text-[#a1a1a1] text-xs leading-4 text-right">{job.period}</span>
+                      <span className="font-mono text-[var(--text-secondary)] text-xs leading-4 text-right">{job.period}</span>
                     </div>
                   </CardHeader>
                   <CardContent className="p-0 gap-3">
-                    <p className="text-[#a1a1a1] text-sm leading-5">{job.desc}</p>
+                    <p className="text-[var(--text-secondary)] text-sm leading-5">{job.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {job.tags.map((tag) => (
-                        <span key={tag} className="rounded-lg bg-neutral-800 text-xs leading-4 px-2 py-1">{tag}</span>
+                        <span key={tag} className="rounded-lg bg-[var(--bg-elevated)] text-xs leading-4 px-2 py-1">{tag}</span>
                       ))}
                     </div>
                   </CardContent>
@@ -176,7 +176,7 @@ export default function Experience() {
         {/* Right Sidebar */}
         <div className="col-span-1 flex flex-col gap-4 md:gap-6">
           {/* Location Image */}
-          <Card className="bg-neutral-900 border-0 border-solid p-0 gap-0 overflow-hidden">
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-0 gap-0 overflow-hidden">
             <div className="relative h-32">
               <img
                 src={profile2}
@@ -186,13 +186,13 @@ export default function Experience() {
               <div className="bg-[linear-gradient(to_top,oklch(0.205_0_0)_10%,transparent)] absolute inset-0" />
               <div className="flex absolute left-4 bottom-3 items-center gap-2">
                 <MapPin className="size-3.5 text-neutral-50" />
-                <span className="font-medium text-xs leading-4">India · Open to Remote</span>
+                <span className="font-medium text-xs leading-4 text-neutral-50">India · Open to Remote</span>
               </div>
             </div>
           </Card>
 
           {/* Core Competencies */}
-          <Card className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 flex-row items-center gap-2">
               <Wrench className="size-4 text-[oklch(0.769_0.188_70.08)]" />
               <h3 className="font-bold text-base leading-6">Core Competencies</h3>
@@ -202,9 +202,9 @@ export default function Experience() {
                 <div key={skill.label}>
                   <div className="text-xs leading-4 flex mb-1 justify-between items-center" style={{ marginTop: i > 0 ? '12px' : 0 }}>
                     <span>{skill.label}</span>
-                    <span className="font-mono text-[#a1a1a1]">{skill.value}%</span>
+                    <span className="font-mono text-[var(--text-secondary)]">{skill.value}%</span>
                   </div>
-                  <div className="rounded-full bg-neutral-800 h-1.5 overflow-hidden">
+                  <div className="rounded-full bg-[var(--bg-elevated)] h-1.5 overflow-hidden">
                     <div className="rounded-full h-full" style={{ width: `${skill.value}%`, backgroundColor: skill.color }} />
                   </div>
                 </div>
@@ -213,7 +213,7 @@ export default function Experience() {
           </Card>
 
           {/* Education */}
-          <Card className="bg-neutral-900 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 flex-row items-center gap-2">
               <GraduationCap className="size-4 text-[oklch(0.488_0.243_264.376)]" />
               <h3 className="font-bold text-base leading-6">Education</h3>
@@ -221,7 +221,7 @@ export default function Experience() {
             <CardContent className="p-0 gap-1">
               <div className="font-medium text-sm leading-5">BTech Computer Science Engineering</div>
               <div className="text-[oklch(0.488_0.243_264.376)] text-xs leading-4">Lovely Professional University · 2023–Present</div>
-              <p className="text-[#a1a1a1] text-xs leading-4 mt-2">
+              <p className="text-[var(--text-secondary)] text-xs leading-4 mt-2">
                 Full-stack web development, programming, and user-centric design. Active in campus dev society.
               </p>
             </CardContent>

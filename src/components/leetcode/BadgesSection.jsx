@@ -36,7 +36,7 @@ function BadgeCard({ badge, index, isLatest }) {
       className={`relative flex flex-col items-center gap-1.5 p-3 rounded-xl border transition-colors cursor-default ${
         isLatest
           ? 'bg-[oklch(0.769_0.188_70.08)]/10 border-[oklch(0.769_0.188_70.08)]/30'
-          : 'bg-[oklch(0.145_0_0)] border-white/10 hover:border-white/20'
+          : 'bg-[var(--bg-inset)] border-[var(--line-10)] hover:border-[var(--line-20)]'
       }`}
     >
       {isLatest && (
@@ -60,7 +60,7 @@ function BadgeCard({ badge, index, isLatest }) {
           <Medal className="size-5" />
         </div>
       </div>
-      <p className="text-[8px] text-[#a1a1a1] text-center leading-tight line-clamp-2 max-w-[70px]">{badge.name}</p>
+      <p className="text-[8px] text-[var(--text-secondary)] text-center leading-tight line-clamp-2 max-w-[70px]">{badge.name}</p>
     </motion.div>
   )
 }
@@ -76,16 +76,16 @@ export default function BadgesSection({ badges: raw, loading }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.25 }}
-      className="bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10 p-5 flex flex-col gap-4"
+      className="bg-[var(--bg-panel)] rounded-2xl border border-[var(--line-10)] p-5 flex flex-col gap-4"
     >
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Medal className="size-4 text-[oklch(0.769_0.188_70.08)]" />
-          <span className="font-semibold text-neutral-50 text-sm">Badges</span>
+          <span className="font-semibold text-[var(--text-primary)] text-sm">Badges</span>
           <span className="font-mono text-[oklch(0.769_0.188_70.08)] text-sm font-bold">{display.length}</span>
         </div>
-        <ArrowRight className="size-4 text-[#a1a1a1]" />
+        <ArrowRight className="size-4 text-[var(--text-secondary)]" />
       </div>
 
       {/* Badge grid */}
@@ -97,9 +97,9 @@ export default function BadgesSection({ badges: raw, loading }) {
 
       {/* Latest badge name */}
       {display[0] && (
-        <div className="border-t border-white/10 pt-3 flex flex-col gap-0.5">
-          <p className="text-[10px] text-[#a1a1a1] uppercase tracking-widest">Most Recent Badge</p>
-          <p className="text-sm font-semibold text-neutral-50">{display[0].name}</p>
+        <div className="border-t border-[var(--line-10)] pt-3 flex flex-col gap-0.5">
+          <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">Most Recent Badge</p>
+          <p className="text-sm font-semibold text-[var(--text-primary)]">{display[0].name}</p>
         </div>
       )}
     </motion.div>
@@ -108,12 +108,12 @@ export default function BadgesSection({ badges: raw, loading }) {
 
 function BadgesSkeleton() {
   return (
-    <div className="bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10 p-5 animate-pulse flex flex-col gap-4">
-      <div className="h-4 bg-[oklch(0.269_0_0)] rounded w-1/4" />
+    <div className="bg-[var(--bg-panel)] rounded-2xl border border-[var(--line-10)] p-5 animate-pulse flex flex-col gap-4">
+      <div className="h-4 bg-[var(--bg-elevated)] rounded w-1/4" />
       <div className="flex gap-2">
-        {[0,1,2].map(i => <div key={i} className="size-[88px] bg-[oklch(0.269_0_0)] rounded-xl" />)}
+        {[0,1,2].map(i => <div key={i} className="size-[88px] bg-[var(--bg-elevated)] rounded-xl" />)}
       </div>
-      <div className="h-8 bg-[oklch(0.269_0_0)] rounded" />
+      <div className="h-8 bg-[var(--bg-elevated)] rounded" />
     </div>
   )
 }

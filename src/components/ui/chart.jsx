@@ -21,10 +21,10 @@ export function ChartTooltip(props) {
   return (
     <Tooltip
       contentStyle={{
-        backgroundColor: 'oklch(0.205 0 0)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        backgroundColor: 'var(--bg-panel)',
+        border: '1px solid var(--line-10)',
         borderRadius: '8px',
-        color: 'white',
+        color: 'var(--text-primary)',
         fontSize: '11px',
       }}
       {...props}

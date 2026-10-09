@@ -28,7 +28,7 @@ export default function App() {
   }
 
   return (
-    <div className="bg-neutral-950 text-neutral-50 flex h-screen overflow-hidden w-screen">
+    <div className="bg-[var(--bg-app)] text-[var(--text-primary)] flex h-screen overflow-hidden w-screen">
       {/* Mobile backdrop */}
       {sidebarOpen && (
         <div

@@ -33,7 +33,7 @@ export default function Dashboard({ onNavigate }) {
   return (
     <div className="flex p-4 md:p-6 flex-col flex-1 gap-4 overflow-auto">
       {/* Hero Banner */}
-      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl border-white/10 border-1 border-solid flex items-end overflow-hidden">
+      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODc2NDd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBtaW5pbWFsJTIwZGFya3xlbnwxfDB8fHwxNzgwMTk3MjgxfDA&ixlib=rb-4.1.0&q=80&w=1200"
           alt="Developer workspace"
@@ -102,8 +102,8 @@ export default function Dashboard({ onNavigate }) {
         </div>
         {/* Stack card — desktop only, absolute top-right */}
         <div className="z-10 hidden md:flex absolute right-6 top-6 flex-col gap-2">
-          <div className="bg-[oklch(0.205_0_0)]/80 backdrop-blur-sm rounded-xl border-white/10 border-1 border-solid flex p-3 flex-col gap-1">
-            <p className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">Stack</p>
+          <div className="bg-[var(--bg-panel)]/80 backdrop-blur-sm rounded-xl border-[var(--line-10)] border-1 border-solid flex p-3 flex-col gap-1">
+            <p className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Stack</p>
             <div className="max-w-[180px] flex flex-wrap gap-1">
               {[
                 { t: 'React.js',   c: 'oklch(0.488 0.243 264.376)' },
@@ -128,49 +128,49 @@ export default function Dashboard({ onNavigate }) {
 
       {/* Stat Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-        <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-4 gap-2">
+        <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 gap-2">
           <CardContent className="flex p-0 flex-col gap-0">
             <div className="flex mb-1 justify-between items-center">
-              <span className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">Projects Shipped</span>
+              <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Projects Shipped</span>
               <Rocket className="size-3.5 text-[oklch(0.488_0.243_264.376)]" />
             </div>
-            <p className="font-bold text-neutral-50 text-3xl leading-9">7</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">7</p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               +3 this year
             </p>
           </CardContent>
         </Card>
-        <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-4 gap-2">
+        <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 gap-2">
           <CardContent className="flex p-0 flex-col gap-0">
             <div className="flex mb-1 justify-between items-center">
-              <span className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">GitHub Commits</span>
+              <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">GitHub Commits</span>
               <GitCommit className="size-3.5 text-[oklch(0.696_0.17_162.48)]" />
             </div>
-            <p className="font-bold text-neutral-50 text-3xl leading-9">500+</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">500+</p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               across all repos
             </p>
           </CardContent>
         </Card>
-        <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-4 gap-2">
+        <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 gap-2">
           <CardContent className="flex p-0 flex-col gap-0">
             <div className="flex mb-1 justify-between items-center">
-              <span className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">APIs Integrated</span>
+              <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">APIs Integrated</span>
               <Plug className="size-3.5 text-[oklch(0.769_0.188_70.08)]" />
             </div>
-            <p className="font-bold text-neutral-50 text-3xl leading-9">24</p>
-            <p className="text-[#a1a1a1] text-[10px] mt-1">OpenAI · Stripe · Clerk · more</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">24</p>
+            <p className="text-[var(--text-secondary)] text-[10px] mt-1">OpenAI · Stripe · Clerk · more</p>
           </CardContent>
         </Card>
-        <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-4 gap-2">
+        <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 gap-2">
           <CardContent className="flex p-0 flex-col gap-0">
             <div className="flex mb-1 justify-between items-center">
-              <span className="uppercase text-[#a1a1a1] text-[10px] tracking-widest">Uptime SLA</span>
+              <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Uptime SLA</span>
               <Activity className="size-3.5 text-[oklch(0.627_0.265_303.9)]" />
             </div>
-            <p className="font-bold text-neutral-50 text-3xl leading-9">99.9%</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">99.9%</p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] inline-block rounded-full" />
               All systems live
@@ -186,17 +186,17 @@ export default function Dashboard({ onNavigate }) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
           {/* Active Projects */}
-          <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-1">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                   <Layers className="size-4 text-[oklch(0.488_0.243_264.376)]" />
-                  <span className="font-semibold text-neutral-50 text-sm leading-5">Active Projects</span>
+                  <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Active Projects</span>
                   <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/20 rounded-full text-[10px] border-1 border-solid px-2 py-0.5">
                     3 running
                   </span>
                 </div>
-                <button onClick={() => onNavigate?.('projects')} className="text-[#a1a1a1] text-[10px] flex items-center gap-1">
+                <button onClick={() => onNavigate?.('projects')} className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
                   <ExternalLink className="size-3" />
                   View all
                 </button>
@@ -235,12 +235,12 @@ export default function Dashboard({ onNavigate }) {
                   link: 'https://github.com/Adityaguptawebdev/LMS-System-INT222',
                 },
               ].map((project) => (
-                <div key={project.name} className="bg-[oklch(0.145_0_0)] rounded-xl border-white/10 border-1 border-solid flex p-4 flex-col gap-3">
+                <div key={project.name} className="bg-[var(--bg-inset)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
                   <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
                         <span className="size-2 rounded-full" style={{ backgroundColor: project.color }} />
-                        <span className="font-semibold text-neutral-50 text-sm leading-5">{project.name}</span>
+                        <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">{project.name}</span>
                         <span
                           className="rounded-full text-[10px] border-1 border-solid px-2 py-0.5"
                           style={{
@@ -252,13 +252,13 @@ export default function Dashboard({ onNavigate }) {
                           {project.status}
                         </span>
                       </div>
-                      <p className="text-[#a1a1a1] text-xs leading-4">{project.desc}</p>
+                      <p className="text-[var(--text-secondary)] text-xs leading-4">{project.desc}</p>
                     </div>
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-lg text-[#a1a1a1] text-[10px] border-white/10 border-1 border-solid flex px-2 py-1 items-center gap-1"
+                      className="rounded-lg text-[var(--text-secondary)] text-[10px] border-[var(--line-10)] border-1 border-solid flex px-2 py-1 items-center gap-1"
                     >
                       <ArrowUpRight className="size-3" />
                       Open
@@ -288,7 +288,7 @@ export default function Dashboard({ onNavigate }) {
           </Card>
 
           {/* Commit Activity — live GitHub heatmap */}
-          <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
             <CardContent className="p-0">
               <CommitHeatmap username="adityaragaai" weeksCount={18} />
             </CardContent>
@@ -298,15 +298,15 @@ export default function Dashboard({ onNavigate }) {
         {/* Right Column */}
         <div className="flex flex-col gap-4">
           {/* System Logs */}
-          <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-1">
               <div className="flex items-center gap-2">
                 <Terminal className="size-4 text-[oklch(0.696_0.17_162.48)]" />
-                <span className="font-semibold text-neutral-50 text-sm leading-5">System Logs</span>
+                <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">System Logs</span>
               </div>
             </CardHeader>
             <CardContent className="flex p-0 flex-col gap-1">
-              <div className="bg-[oklch(0.145_0_0)] max-h-48 font-mono rounded-xl text-[10px] flex p-3 flex-col gap-1.5 overflow-hidden">
+              <div className="bg-neutral-950 max-h-48 font-mono rounded-xl text-[10px] flex p-3 flex-col gap-1.5 overflow-hidden">
                 {[
                   { time: '10:02:44', type: 'INFO', color: 'oklch(0.696 0.17 162.48)', msg: 'algotaskflow.vercel.app · live' },
                   { time: '10:02:31', type: 'BUILD', color: 'oklch(0.488 0.243 264.376)', msg: 'TypeScript 0 errors · React 19' },
@@ -317,15 +317,15 @@ export default function Dashboard({ onNavigate }) {
                   { time: '10:01:26', type: 'INFO', color: 'oklch(0.696 0.17 162.48)', msg: 'GitHub push · adityaragaai' },
                 ].map((log, i) => (
                   <div key={i} className="flex gap-2">
-                    <span className="text-[oklch(0.708_0_0)]">{log.time}</span>
+                    <span className="text-neutral-500">{log.time}</span>
                     <span style={{ color: log.color }}>{log.type}</span>
-                    <span className="text-[#a1a1a1]">{log.msg}</span>
+                    <span className="text-neutral-400">{log.msg}</span>
                   </div>
                 ))}
                 <div className="flex items-center gap-2">
-                  <span className="text-[oklch(0.708_0_0)]">10:00:30</span>
+                  <span className="text-neutral-500">10:00:30</span>
                   <span className="text-[oklch(0.696_0.17_162.48)]">INFO</span>
-                  <span className="text-[#a1a1a1]">Dev server listening :5176</span>
+                  <span className="text-neutral-400">Dev server listening :5176</span>
                   <span className="inline-block size-1.5 bg-[oklch(0.696_0.17_162.48)] animate-pulse rounded-full ml-1" />
                 </div>
               </div>
@@ -333,15 +333,15 @@ export default function Dashboard({ onNavigate }) {
           </Card>
 
           {/* Tech Stack */}
-          <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-1">
               <div className="flex items-center gap-2">
                 <Cpu className="size-4 text-[oklch(0.627_0.265_303.9)]" />
-                <span className="font-semibold text-neutral-50 text-sm leading-5">Tech Stack</span>
+                <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Tech Stack</span>
               </div>
             </CardHeader>
             <CardContent className="flex p-0 flex-col gap-2">
-              <span className="text-[#a1a1a1] text-xs leading-4">Frontend</span>
+              <span className="text-[var(--text-secondary)] text-xs leading-4">Frontend</span>
               <div className="flex flex-wrap gap-1.5">
                 {['React.js', 'TypeScript', 'JavaScript', 'HTML', 'CSS'].map((t) => (
                   <span key={t} className="flex items-center gap-1 bg-[oklch(0.488_0.243_264.376)]/10 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/20 rounded-full text-[10px] border border-solid px-2 py-0.5">
@@ -350,7 +350,7 @@ export default function Dashboard({ onNavigate }) {
                   </span>
                 ))}
               </div>
-              <span className="text-[#a1a1a1] text-xs leading-4 mt-1">Backend & DB</span>
+              <span className="text-[var(--text-secondary)] text-xs leading-4 mt-1">Backend & DB</span>
               <div className="flex flex-wrap gap-1.5">
                 {['Node.js', 'MongoDB', 'Java', 'SQL', 'Git'].map((t) => (
                   <span key={t} className="flex items-center gap-1 bg-[oklch(0.696_0.17_162.48)]/10 text-[oklch(0.696_0.17_162.48)] border-[oklch(0.696_0.17_162.48)]/20 rounded-full text-[10px] border border-solid px-2 py-0.5">
@@ -359,7 +359,7 @@ export default function Dashboard({ onNavigate }) {
                   </span>
                 ))}
               </div>
-              <span className="text-[#a1a1a1] text-xs leading-4 mt-1">Design & Other</span>
+              <span className="text-[var(--text-secondary)] text-xs leading-4 mt-1">Design & Other</span>
               <div className="flex flex-wrap gap-1.5">
                 {['Figma', 'UI/UX', 'C++'].map((t) => (
                   <span key={t} className="flex items-center gap-1 bg-[oklch(0.627_0.265_303.9)]/10 text-[oklch(0.627_0.265_303.9)] border-[oklch(0.627_0.265_303.9)]/20 rounded-full text-[10px] border border-solid px-2 py-0.5">
@@ -368,39 +368,39 @@ export default function Dashboard({ onNavigate }) {
                   </span>
                 ))}
               </div>
-              <div className="border-white/10 border-t border-solid mt-1 pt-2">
+              <div className="border-[var(--line-10)] border-t border-solid mt-1 pt-2">
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Sparkles className="size-3 text-[oklch(0.769_0.188_70.08)]" />
-                  <span className="text-[#a1a1a1] text-xs leading-4">AI-Augmented Dev</span>
+                  <span className="text-[var(--text-secondary)] text-xs leading-4">AI-Augmented Dev</span>
                 </div>
                 <div className="flex flex-wrap gap-1">
                   {['Claude', 'Cursor', 'ChatGPT', 'Antigravity'].map((t) => (
                     <span key={t} className="bg-[oklch(0.769_0.188_70.08)]/10 text-[oklch(0.769_0.188_70.08)] border-[oklch(0.769_0.188_70.08)]/20 rounded-full text-[10px] border-1 border-solid px-2 py-0.5">{t}</span>
                   ))}
                 </div>
-                <p className="text-[#a1a1a1] text-[10px] mt-1.5 leading-4">Using AI tools to ship faster & smarter.</p>
+                <p className="text-[var(--text-secondary)] text-[10px] mt-1.5 leading-4">Using AI tools to ship faster & smarter.</p>
               </div>
             </CardContent>
           </Card>
 
           {/* Open to Work */}
-          <Card className="bg-[oklch(0.205_0_0)] border-white/10 border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
             <CardHeader className="p-0 gap-1">
               <div className="flex items-center gap-2">
                 <Sparkles className="size-4 text-[oklch(0.769_0.188_70.08)]" />
-                <span className="font-semibold text-neutral-50 text-sm leading-5">Open to Work</span>
+                <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Open to Work</span>
               </div>
             </CardHeader>
             <CardContent className="flex p-0 flex-col gap-2">
-              <p className="text-[#a1a1a1] text-xs leading-4">
+              <p className="text-[var(--text-secondary)] text-xs leading-4">
                 Seeking internships and full-time Full-Stack Developer / UI-UX Designer roles. Also available for freelance projects.
               </p>
               <div className="flex flex-col gap-1">
-                <div className="text-[#a1a1a1] text-xs leading-4 flex items-center gap-2">
+                <div className="text-[var(--text-secondary)] text-xs leading-4 flex items-center gap-2">
                   <MapPin className="size-3 text-[oklch(0.488_0.243_264.376)]" />
                   India · Open to Remote
                 </div>
-                <div className="text-[#a1a1a1] text-xs leading-4 flex items-center gap-2">
+                <div className="text-[var(--text-secondary)] text-xs leading-4 flex items-center gap-2">
                   <Calendar className="size-3 text-[oklch(0.488_0.243_264.376)]" />
                   Available immediately
                 </div>
@@ -410,7 +410,7 @@ export default function Dashboard({ onNavigate }) {
                   href="https://www.linkedin.com/in/adityagupta-swe/"
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-[oklch(0.922_0_0)] text-[oklch(0.205_0_0)] transition-colors font-semibold rounded-lg text-xs leading-4 flex flex-1 py-2 justify-center items-center gap-2"
+                  className="bg-[var(--invert-bg)] text-[var(--invert-text)] transition-colors font-semibold rounded-lg text-xs leading-4 flex flex-1 py-2 justify-center items-center gap-2"
                 >
                   <Mail className="size-3.5" />
                   LinkedIn
@@ -419,7 +419,7 @@ export default function Dashboard({ onNavigate }) {
                   href="https://youtu.be/E3hUmiRxPxg?si=9Dv9-4nkeKjc9W4s"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex flex-1 py-2 justify-center items-center gap-2"
+                  className="transition-colors font-medium rounded-lg text-[var(--text-primary)] text-xs leading-4 border-[var(--line-10)] border-1 border-solid flex flex-1 py-2 justify-center items-center gap-2"
                 >
                   <PlaySquare className="size-3.5" />
                   YouTube
@@ -443,9 +443,9 @@ function DiffPill({ label, solved, total, color }) {
     <div className="flex flex-col gap-1 min-w-[80px]">
       <div className="flex justify-between text-[10px]">
         <span style={{ color }}>{label}</span>
-        <span className="text-neutral-50 font-semibold">{solved}</span>
+        <span className="text-[var(--text-primary)] font-semibold">{solved}</span>
       </div>
-      <div className="bg-[oklch(0.269_0_0)] rounded-full h-1 overflow-hidden">
+      <div className="bg-[var(--bg-elevated)] rounded-full h-1 overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{ width: `${total ? (solved / total) * 100 : 0}%`, backgroundColor: color }}
@@ -479,7 +479,7 @@ function LeetCodeCard({ onNavigate }) {
   return (
     <button
       onClick={() => onNavigate?.('leetcode')}
-      className="group w-full text-left bg-[oklch(0.205_0_0)] rounded-2xl border border-white/10
+      className="group w-full text-left bg-[var(--bg-panel)] rounded-2xl border border-[var(--line-10)]
                  hover:border-[oklch(0.769_0.188_70.08)]/40
                  transition-all duration-200 focus:outline-none"
     >
@@ -492,23 +492,23 @@ function LeetCodeCard({ onNavigate }) {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <p className="font-semibold text-neutral-50 text-sm">LeetCode</p>
+              <p className="font-semibold text-[var(--text-primary)] text-sm">LeetCode</p>
               {loading ? (
-                <span className="w-16 h-3 bg-[oklch(0.269_0_0)] rounded animate-pulse inline-block" />
+                <span className="w-16 h-3 bg-[var(--bg-elevated)] rounded animate-pulse inline-block" />
               ) : (
                 <span className="text-[oklch(0.769_0.188_70.08)] bg-[oklch(0.769_0.188_70.08)]/10 border border-[oklch(0.769_0.188_70.08)]/20 rounded-full text-[10px] px-2 py-0.5 font-mono">
                   {solved.total} solved
                 </span>
               )}
             </div>
-            <p className="text-[#a1a1a1] text-[10px] mt-0.5">@adityaguptawebdev · Live stats</p>
+            <p className="text-[var(--text-secondary)] text-[10px] mt-0.5">@adityaguptawebdev · Live stats</p>
           </div>
         </div>
 
         {/* Middle: difficulty bars */}
         <div className="flex gap-4 flex-wrap">
           {loading ? (
-            [0,1,2].map(i => <div key={i} className="w-20 h-8 bg-[oklch(0.269_0_0)] rounded animate-pulse" />)
+            [0,1,2].map(i => <div key={i} className="w-20 h-8 bg-[var(--bg-elevated)] rounded animate-pulse" />)
           ) : (
             <>
               <DiffPill label="Easy"   solved={solved.easy}   total={totals.easy}   color="#00B8A3" />
@@ -521,17 +521,17 @@ function LeetCodeCard({ onNavigate }) {
         {/* Right: contest + streak + cta */}
         <div className="flex items-center gap-4">
           <div className="text-center">
-            <p className="text-neutral-50 font-bold text-sm">{loading ? '—' : rating.toLocaleString()}</p>
-            <p className="text-[#a1a1a1] text-[9px] uppercase tracking-wider">Contest</p>
+            <p className="text-[var(--text-primary)] font-bold text-sm">{loading ? '—' : rating.toLocaleString()}</p>
+            <p className="text-[var(--text-secondary)] text-[9px] uppercase tracking-wider">Contest</p>
           </div>
           <div className="text-center">
-            <p className="text-neutral-50 font-bold text-sm flex items-center gap-1 justify-center">
+            <p className="text-[var(--text-primary)] font-bold text-sm flex items-center gap-1 justify-center">
               <Flame className="size-3 text-[oklch(0.769_0.188_70.08)]" />
               {loading ? '—' : `${streak}d`}
             </p>
-            <p className="text-[#a1a1a1] text-[9px] uppercase tracking-wider">Streak</p>
+            <p className="text-[var(--text-secondary)] text-[9px] uppercase tracking-wider">Streak</p>
           </div>
-          <div className="flex items-center gap-1 text-[#a1a1a1] group-hover:text-[oklch(0.769_0.188_70.08)] transition-colors text-xs ml-2">
+          <div className="flex items-center gap-1 text-[var(--text-secondary)] group-hover:text-[oklch(0.769_0.188_70.08)] transition-colors text-xs ml-2">
             View Stats
             <ChevronRight className="size-3.5 group-hover:translate-x-0.5 transition-transform" />
           </div>
@@ -539,19 +539,19 @@ function LeetCodeCard({ onNavigate }) {
       </div>
 
       {/* Divider */}
-      <div className="border-t border-white/8 mx-5" />
+      <div className="border-t border-[var(--line-8)] mx-5" />
 
       {/* Row 2: badges */}
       <div className="flex items-center gap-4 px-5 py-3">
         <div className="flex items-center gap-1.5 shrink-0">
           <Medal className="size-3.5 text-[oklch(0.769_0.188_70.08)]" />
-          <span className="text-[10px] text-[#a1a1a1] uppercase tracking-widest">Badges</span>
+          <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-widest">Badges</span>
           <span className="text-[10px] font-bold text-[oklch(0.769_0.188_70.08)] ml-0.5">{topBadges.length}</span>
         </div>
         <div className="flex items-center gap-2 flex-1 min-w-0">
           {loading ? (
             [0,1,2,3,4].map(i => (
-              <div key={i} className="size-8 rounded-lg bg-[oklch(0.269_0_0)] animate-pulse shrink-0" />
+              <div key={i} className="size-8 rounded-lg bg-[var(--bg-elevated)] animate-pulse shrink-0" />
             ))
           ) : (
             topBadges.map((badge, i) => (
@@ -560,7 +560,7 @@ function LeetCodeCard({ onNavigate }) {
                 className={`relative shrink-0 size-8 rounded-lg overflow-hidden border transition-colors
                   ${i === 0
                     ? 'border-[oklch(0.769_0.188_70.08)]/50 bg-[oklch(0.769_0.188_70.08)]/10'
-                    : 'border-white/10 bg-[oklch(0.145_0_0)]'}`}
+                    : 'border-[var(--line-10)] bg-[var(--bg-inset)]'}`}
                 title={badge.name}
               >
                 <img
@@ -570,15 +570,15 @@ function LeetCodeCard({ onNavigate }) {
                   onError={e => { e.target.style.display = 'none' }}
                 />
                 {i === 0 && (
-                  <span className="absolute -top-1 -right-1 size-2.5 bg-[oklch(0.769_0.188_70.08)] rounded-full border border-[oklch(0.205_0_0)]" />
+                  <span className="absolute -top-1 -right-1 size-2.5 bg-[oklch(0.769_0.188_70.08)] rounded-full border border-[var(--bg-panel)]" />
                 )}
               </div>
             ))
           )}
         </div>
         {!loading && topBadges[0] && (
-          <p className="text-[10px] text-[#a1a1a1] shrink-0 hidden sm:block">
-            Latest: <span className="text-neutral-50 font-medium">{topBadges[0].name}</span>
+          <p className="text-[10px] text-[var(--text-secondary)] shrink-0 hidden sm:block">
+            Latest: <span className="text-[var(--text-primary)] font-medium">{topBadges[0].name}</span>
           </p>
         )}
       </div>
