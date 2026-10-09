@@ -25,6 +25,10 @@ import joshVideo from '../assets/josh.mov'
 import aiSafetyVideo from '../assets/AISEFTY.mov'
 import vedaaiHome from '../assets/vedaAIHome.png'
 import vedaaiResult from '../assets/vedaai-result.png'
+import ivyOverview from '../assets/ivy-overview.jpg'
+import ivyInsurance from '../assets/ivy-insurance.jpg'
+import ivyEstimate from '../assets/ivy-estimate.jpg'
+import ivyNext from '../assets/ivy-next.jpg'
 
 import TECH_ICONS from '../lib/techIcons'
 
@@ -104,6 +108,22 @@ const projects = [
     images: [vedaaiHome, vedaaiResult],
     repo: 'https://github.com/Adityaguptawebdev/vedaai-fullstack-assignment',
     live: 'https://vedaai-exams.vercel.app/',
+  },
+  {
+    name: 'Ivy — Healthcare Cost Assistant',
+    type: 'assignment',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.488 0.243 264.376)',
+    desc: 'Cross-platform mobile app (Android · iOS · Web) that takes a patient from a photo of their insurance card to a personalized out-of-pocket estimate for an allergy & immunology visit. Card OCR, live eligibility checks, an Ivy assistant that turns free-text symptoms into a visit type, in-network clinic search with side-by-side cost comparison and savings, deductible / OOP-max impact, and on-device PDF export — with PHI-safe sessions and accessibility built in.',
+    progress: 100,
+    tags: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Reanimated'],
+    stars: null,
+    commit: '2026 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.488 0.243 264.376)',
+    archived: false,
+    images: [ivyOverview, ivyInsurance, ivyEstimate, ivyNext],
+    repo: 'https://github.com/Adityaguptawebdev/ivy-health-app',
   },
   {
     name: 'JTG Eats — Frontend Mockup',
@@ -322,16 +342,18 @@ function ImageCarousel({ images, repo, live, repoBack, statusColor }) {
             <GithubIcon className="size-3.5" /> GitHub
           </a>
         )}
-        <a href={live} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()}
-          className="relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
-          style={{
-            backgroundColor: `color-mix(in oklch, ${statusColor} 25%, rgba(0,0,0,0.7))`,
-            color: 'white',
-            border: `1px solid color-mix(in oklch, ${statusColor} 50%, transparent)`,
-          }}
-        >
-          <ExternalLink className="size-3" /> Live
-        </a>
+        {live && (
+          <a href={live} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()}
+            className="relative z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors"
+            style={{
+              backgroundColor: `color-mix(in oklch, ${statusColor} 25%, rgba(0,0,0,0.7))`,
+              color: 'white',
+              border: `1px solid color-mix(in oklch, ${statusColor} 50%, transparent)`,
+            }}
+          >
+            <ExternalLink className="size-3" /> Live
+          </a>
+        )}
       </div>
 
       {images.length > 1 && (
@@ -398,7 +420,7 @@ export default function Projects() {
           <div className="flex items-center gap-3">
             <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Projects</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border border-solid px-2 py-0.5">
-              13 shipped
+              {projects.filter(p => p.status === 'PRODUCTION').length} shipped
             </span>
           </div>
           <p className="text-[var(--text-secondary)] text-sm leading-5">Production systems &amp; live deployments</p>
@@ -675,7 +697,13 @@ export default function Projects() {
 
                   {/* Has image, no repoBack */}
                   {!project.repoBack && project.images && project.images.length > 0 && (
-                    project.archived ? (
+                    !project.live ? (
+                      <a href={project.repo} target="_blank" rel="noreferrer"
+                        className="flex items-center gap-1 px-2.5 py-1 rounded-md bg-[var(--bg-elevated)] hover:bg-[var(--bg-elevated-2)] text-[var(--text-secondary)] text-[10px] font-medium transition-colors border border-[var(--line-10)]"
+                      >
+                        <GithubIcon className="size-3" /> GitHub
+                      </a>
+                    ) : project.archived ? (
                       <span className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
                         <Archive className="size-3" />
                         <a href={project.live} target="_blank" rel="noreferrer" className="hover:text-[var(--text-primary)] transition-colors">View</a>
