@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import lpuImg from '../assets/lpu.jpeg'
+import buddhaImg from '../assets/buddha-campus.jpg'
 import certInfosys from '../assets/cert-infosys.png'
 import certNptel from '../assets/cert-nptel.png'
 import certTechsaksham from '../assets/cert-techsaksham.png'
@@ -29,16 +30,17 @@ const timeline = [
     period: '2023 — 2026',
     dotColor: 'oklch(0.696 0.17 162.48)',
     current: false,
-    desc: 'Pursuing a B.Tech in CSE with a focus on full-stack web development, data structures, algorithms, and software engineering. Active member of the campus developer community.',
+    desc: 'Completed a B.Tech in CSE in 2026 with a focus on full-stack web development, data structures, algorithms, and software engineering. Active member of the campus developer community.',
     tags: ['Full-Stack Dev', 'DSA', 'Software Engineering', 'Project Management'],
   },
   {
     title: 'Diploma in Electrical Engineering',
     institution: 'Buddha Polytechnic College',
+    grade: 'CGPA 8.1 / 10',
     period: '2020 — 2023',
     dotColor: 'oklch(0.769 0.188 70.08)',
     current: false,
-    desc: 'Three-year technical diploma developing a strong foundation in engineering principles, mathematics, and problem-solving that now underlies my approach to software development.',
+    desc: 'Completed a three-year technical diploma with a CGPA of 8.1/10, developing a strong foundation in engineering principles, mathematics, and problem-solving that now underlies my approach to software development.',
     tags: ['Electrical Engg.', 'Mathematics', 'Physics', 'PLC', 'C++'],
   },
   {
@@ -165,7 +167,7 @@ export default function Education() {
         <Card className="bg-[var(--bg-panel)] border-0 border-solid p-5 gap-3">
           <CardHeader className="p-0 gap-2">
             <div className="flex justify-between items-center">
-              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">EXPECTED</span>
+              <span className="font-mono text-[var(--text-secondary)] text-[10px] tracking-widest">GRADUATED</span>
               <CalendarClock className="size-3.5 text-[var(--text-secondary)]" />
             </div>
           </CardHeader>
@@ -206,7 +208,10 @@ export default function Education() {
                           </span>
                         )}
                       </div>
-                      <span className="text-[var(--accent-blue-soft)] text-xs leading-4">{entry.institution}</span>
+                      <span className="text-[var(--accent-blue-soft)] text-xs leading-4">
+                        {entry.institution}
+                        {entry.grade && <span className="text-[var(--text-secondary)]"> · {entry.grade}</span>}
+                      </span>
                     </div>
                   </div>
                   <span className="font-mono text-[var(--text-secondary)] text-xs leading-4 shrink-0">{entry.period}</span>
@@ -243,6 +248,21 @@ export default function Education() {
               </div>
             </Card>
           </a>
+
+          <Card className="bg-[var(--bg-panel)] border-0 border-solid p-0 gap-0 overflow-hidden">
+            <div className="relative w-full h-40">
+              <img
+                src={buddhaImg}
+                alt="Buddha Polytechnic College campus"
+                className="object-cover w-full h-full"
+              />
+              <div className="bg-gradient-to-t from-neutral-900 to-transparent absolute inset-0" />
+              <div className="flex absolute left-4 bottom-3 items-center gap-2">
+                <MapPin className="size-3.5 text-neutral-50" />
+                <span className="font-medium text-xs leading-4 text-neutral-50">Buddha Polytechnic College · Gorakhpur</span>
+              </div>
+            </div>
+          </Card>
 
           {/* Certifications */}
           <Card className="bg-[var(--bg-panel)] border-0 border-solid p-6 gap-4">
