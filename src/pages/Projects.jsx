@@ -29,6 +29,10 @@ import ivyOverview from '../assets/ivy-overview.jpg'
 import ivyInsurance from '../assets/ivy-insurance.jpg'
 import ivyEstimate from '../assets/ivy-estimate.jpg'
 import ivyNext from '../assets/ivy-next.jpg'
+import tdcDashboard from '../assets/tdc-dashboard.jpg'
+import tdcMatches from '../assets/tdc-matches.jpg'
+import tdcProfile from '../assets/tdc-profile.jpg'
+import tdcLogin from '../assets/tdc-login.jpg'
 
 import TECH_ICONS from '../lib/techIcons'
 
@@ -110,17 +114,33 @@ const projects = [
     live: 'https://vedaai-exams.vercel.app/',
   },
   {
-    name: 'Ivy — Healthcare Cost Assistant',
+    name: 'TDC — Matchmaker Console',
     type: 'assignment',
     status: 'PRODUCTION',
     statusColor: 'oklch(0.488 0.243 264.376)',
+    desc: 'Internal console for matchmakers to manage their clients\' journeys, review full matrimonial biodata, and generate ranked, explainable match suggestions from a pool of 144 profiles — a deterministic 0–100 compatibility score with a per-category breakdown of every check. Includes notes and call logs, simulated match introductions drafted by AI (with a template fallback), feedback tracking, an activity timeline, and JWT-cookie auth with rate limiting.',
+    progress: 100,
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
+    stars: null,
+    commit: '2026 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.488 0.243 264.376)',
+    archived: false,
+    images: [tdcDashboard, tdcMatches, tdcProfile, tdcLogin],
+    repo: 'https://github.com/Adityaguptawebdev/tdc-matchmaker-console',
+    live: 'https://tdc-matchmaker-console-mu.vercel.app',
+  },
+  {
+    name: 'Ivy — Healthcare Cost Assistant',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.696 0.17 162.48)',
     desc: 'Cross-platform mobile app (Android · iOS · Web) that takes a patient from a photo of their insurance card to a personalized out-of-pocket estimate for an allergy & immunology visit. Card OCR, live eligibility checks, an Ivy assistant that turns free-text symptoms into a visit type, in-network clinic search with side-by-side cost comparison and savings, deductible / OOP-max impact, and on-device PDF export — with PHI-safe sessions and accessibility built in.',
     progress: 100,
     tags: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'Reanimated'],
     stars: null,
     commit: '2026 · Latest',
     uptime: '99.9%',
-    uptimeColor: 'oklch(0.488 0.243 264.376)',
+    uptimeColor: 'oklch(0.696 0.17 162.48)',
     archived: false,
     images: [ivyOverview, ivyInsurance, ivyEstimate, ivyNext],
     repo: 'https://github.com/Adityaguptawebdev/ivy-health-app',
