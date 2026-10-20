@@ -190,7 +190,7 @@ export default function Dashboard({ onNavigate }) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
           {/* Active Projects */}
-          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
+          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4 [.light_&]:flex [.light_&]:flex-col">
             <CardHeader className="p-0 gap-1">
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
@@ -211,10 +211,10 @@ export default function Dashboard({ onNavigate }) {
                 {
                   name: 'FoodSaver — Surplus Food to NGOs',
                   status: 'PRODUCTION',
-                  color: 'oklch(0.696 0.17 162.48)',
+                  color: 'var(--accent-emerald)',
                   desc: 'Connects restaurants and individuals with surplus food to nearby NGOs — live donation feed, claim flow, impact charts, and AI-assisted listings.',
                   progress: 90,
-                  bar: 'oklch(0.696 0.17 162.48)',
+                  bar: 'var(--accent-emerald)',
                   tags: ['React.js', 'Tailwind CSS', 'Node.js', 'MongoDB'],
                   link: 'https://donateforgood.vercel.app/',
                 },
@@ -231,15 +231,15 @@ export default function Dashboard({ onNavigate }) {
                 {
                   name: 'Ivy — Healthcare Cost Assistant',
                   status: 'PRODUCTION',
-                  color: 'oklch(0.696 0.17 162.48)',
+                  color: 'var(--accent-emerald)',
                   desc: 'React Native app that turns an insurance card photo into a personalized out-of-pocket estimate, with clinic cost comparison and PDF export.',
                   progress: 100,
-                  bar: 'oklch(0.696 0.17 162.48)',
+                  bar: 'var(--accent-emerald)',
                   tags: ['React Native', 'Expo', 'TypeScript'],
                   link: 'https://github.com/Adityaguptawebdev/ivy-health-app',
                 },
               ].map((project) => (
-                <div key={project.name} className="bg-[var(--bg-inset)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
+                <div key={project.name} className="bg-[var(--bg-app)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
                   <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-2">
