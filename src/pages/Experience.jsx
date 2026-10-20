@@ -83,7 +83,7 @@ export default function Experience() {
           <p className="text-[var(--text-secondary)] text-sm leading-5">{`Deployment history · roles & engineering tenures`}</p>
         </div>
         <a
-          href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
+          href="https://drive.google.com/file/d/1KqdbqQFRvCLU8Yi_KsU6f6hhFppqnXBN/view?usp=drive_link"
           target="_blank"
           rel="noreferrer"
         >

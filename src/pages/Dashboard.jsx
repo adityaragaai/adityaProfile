@@ -66,7 +66,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="hidden sm:inline">View </span>Projects
             </button>
             <a
-              href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
+              href="https://drive.google.com/file/d/1KqdbqQFRvCLU8Yi_KsU6f6hhFppqnXBN/view?usp=drive_link"
               target="_blank"
               rel="noreferrer"
               className="transition-colors font-medium rounded-lg text-[var(--text-primary)] text-xs leading-4 border-[var(--line-15)] border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
