@@ -33,6 +33,10 @@
   --accent-violet: oklch(0.627 0.265 303.9);
   --accent-red: oklch(0.704 0.191 22.216);
   --accent-blue-soft: oklch(0.7 0.18 264);
+
+  /* Dashboard hero banner: base color the photo fades into, and photo strength */
+  --hero-bg: oklch(0.145 0 0);
+  --hero-img-opacity: 0.3;
 }
 
 :root.light {
@@ -63,6 +67,9 @@
   --accent-violet: oklch(0.5 0.22 303);
   --accent-red: oklch(0.55 0.2 25);
   --accent-blue-soft: oklch(0.42 0.16 264);
+
+  --hero-bg: oklch(0.985 0.008 264);
+  --hero-img-opacity: 0.1;
 }
 
 html {

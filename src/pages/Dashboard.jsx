@@ -33,30 +33,34 @@ export default function Dashboard({ onNavigate }) {
   return (
     <div className="flex p-4 md:p-6 flex-col flex-1 gap-4 overflow-auto">
       {/* Hero Banner */}
-      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
+      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl bg-[var(--hero-bg)] border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODc2NDd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBtaW5pbWFsJTIwZGFya3xlbnwxfDB8fHwxNzgwMTk3MjgxfDA&ixlib=rb-4.1.0&q=80&w=1200"
           alt="Developer workspace"
-          className="object-cover opacity-30 absolute inset-0 w-full h-full"
+          className="object-cover absolute inset-0 w-full h-full"
+          style={{ opacity: 'var(--hero-img-opacity)' }}
         />
-        <div className="bg-[linear-gradient(to_top,oklch(0.145_0_0)_0%,oklch(0.145_0_0/0.7)_40%,transparent_80%)] absolute inset-0" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, var(--hero-bg) 0%, color-mix(in oklch, var(--hero-bg) 70%, transparent) 40%, transparent 80%)' }}
+        />
         <div className="relative z-10 flex p-4 md:p-8 flex-col gap-2 w-full">
           <div className="flex mb-1 items-center gap-2">
             <span className="text-[oklch(0.488_0.243_264.376)] bg-[oklch(0.488_0.243_264.376)]/10 border-[oklch(0.488_0.243_264.376)]/30 font-mono rounded-full text-[10px] border-1 border-solid px-2 py-0.5">
               PROCESS_ID: 0xAG09 · UPTIME: BTech CSE @ LPU
             </span>
           </div>
-          <h1 className="font-bold text-neutral-50 text-2xl md:text-4xl leading-8 md:leading-10 tracking-tight">
+          <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-4xl leading-8 md:leading-10 tracking-tight">
             Aditya Gupta
-            <span className="font-light text-[#a1a1a1]"> / Full-Stack Developer</span>
+            <span className="font-light text-[var(--text-secondary)]"> / Full-Stack Developer</span>
           </h1>
-          <p className="max-w-xl text-[#a1a1a1] text-xs md:text-sm leading-5">
+          <p className="max-w-xl text-[var(--text-secondary)] text-xs md:text-sm leading-5">
             Full-Stack Developer who ships fast and thinks in systems. I build clean, scalable web apps — and yes, I vibe code with AI to move faster without cutting corners. Obsessed with great UI, sharp logic, and turning ideas into live products.
           </p>
           <div className="flex mt-2 items-center gap-2 md:gap-3">
             <button
               onClick={() => onNavigate?.('projects')}
-              className="bg-[oklch(0.922_0_0)] text-[oklch(0.205_0_0)] transition-colors font-semibold rounded-lg text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
+              className="bg-[var(--invert-bg)] text-[var(--invert-text)] transition-colors font-semibold rounded-lg text-xs leading-4 flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
               <FolderOpen className="size-3.5 shrink-0" />
               <span className="hidden sm:inline">View </span>Projects
@@ -65,7 +69,7 @@ export default function Dashboard({ onNavigate }) {
               href="https://drive.google.com/file/d/1L1SfSP0Q3-OoRq01ayA4_ORfVwgEE9XN/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
-              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
+              className="transition-colors font-medium rounded-lg text-[var(--text-primary)] text-xs leading-4 border-[var(--line-15)] border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
               <Download className="size-3.5 shrink-0" />
               Resume<span className="hidden sm:inline">.pdf</span>
@@ -74,7 +78,7 @@ export default function Dashboard({ onNavigate }) {
               href="https://github.com/Adityaguptawebdev"
               target="_blank"
               rel="noreferrer"
-              className="transition-colors font-medium rounded-lg text-neutral-50 text-xs leading-4 border-white/10 border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
+              className="transition-colors font-medium rounded-lg text-[var(--text-primary)] text-xs leading-4 border-[var(--line-15)] border-1 border-solid flex px-3 md:px-4 py-2 items-center gap-1.5 md:gap-2 whitespace-nowrap"
             >
               <FallbackComponent className="size-3.5 shrink-0" />
               GitHub
@@ -205,6 +209,16 @@ export default function Dashboard({ onNavigate }) {
             <CardContent className="flex p-0 flex-col gap-2">
               {[
                 {
+                  name: 'FoodSaver — Surplus Food to NGOs',
+                  status: 'PRODUCTION',
+                  color: 'oklch(0.696 0.17 162.48)',
+                  desc: 'Connects restaurants and individuals with surplus food to nearby NGOs — live donation feed, claim flow, impact charts, and AI-assisted listings.',
+                  progress: 90,
+                  bar: 'oklch(0.696 0.17 162.48)',
+                  tags: ['React.js', 'Tailwind CSS', 'Node.js', 'MongoDB'],
+                  link: 'https://donateforgood.vercel.app/',
+                },
+                {
                   name: 'AlgoTaskFlow — Task Manager',
                   status: 'PRODUCTION',
                   color: 'oklch(0.488 0.243 264.376)',
@@ -215,24 +229,14 @@ export default function Dashboard({ onNavigate }) {
                   link: 'https://algotaskflow.vercel.app/dashboard',
                 },
                 {
-                  name: 'Re-Boxed — E-Commerce',
+                  name: 'Ivy — Healthcare Cost Assistant',
                   status: 'PRODUCTION',
                   color: 'oklch(0.696 0.17 162.48)',
-                  desc: 'Full-stack e-commerce platform for buying and selling second-hand products with an admin dashboard.',
-                  progress: 95,
-                  bar: 'oklch(0.488 0.243 264.376)',
-                  tags: ['React.js', 'Node.js', 'MongoDB'],
-                  link: 'https://re-boxed.vercel.app/',
-                },
-                {
-                  name: 'LMS System — Ed-Tech',
-                  status: 'BETA',
-                  color: 'oklch(0.769 0.188 70.08)',
-                  desc: 'Full-stack Learning Management System with course management and student dashboards.',
-                  progress: 65,
-                  bar: 'oklch(0.769 0.188 70.08)',
-                  tags: ['React', 'Node.js', 'MongoDB'],
-                  link: 'https://github.com/Adityaguptawebdev/LMS-System-INT222',
+                  desc: 'React Native app that turns an insurance card photo into a personalized out-of-pocket estimate, with clinic cost comparison and PDF export.',
+                  progress: 100,
+                  bar: 'oklch(0.696 0.17 162.48)',
+                  tags: ['React Native', 'Expo', 'TypeScript'],
+                  link: 'https://github.com/Adityaguptawebdev/ivy-health-app',
                 },
               ].map((project) => (
                 <div key={project.name} className="bg-[var(--bg-inset)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
