@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import profile2 from '../assets/profile2.png'
 import ragaaiLogo from '../assets/ragaai-logo.svg'
 import microsoftLogo from '../assets/microsoft-logo.png'
@@ -6,27 +7,35 @@ import {
   Activity,
   Clock,
   Download,
+  ExternalLink,
+  FileText,
   GitBranch,
   GraduationCap,
   MapPin,
   Rocket,
   Users,
   Wrench,
+  X,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const jobs = [
   {
-    title: 'SDE Frontend Intern',
+    title: 'SDE Intern',
     company: 'RagaAI · Bengaluru, India',
     period: 'Jan 2026 – May 2026',
     current: false,
     dotColor: 'oklch(0.488 0.243 264.376)',
-    desc: 'Developed and maintained responsive web applications using React.js, TypeScript, HTML5, and CSS3. Built reusable and scalable UI components improving maintainability and reducing development time by 25%. Integrated RESTful APIs and optimized frontend performance using lazy loading and efficient state management.',
-    tags: ['React.js', 'TypeScript', 'HTML5', 'CSS3', 'REST APIs'],
+    desc: 'Shipped production features across RagaAI\'s Clinical Ops, CMS, and Denver Allergy products — fax classification and AI-assisted billing collections dashboards, review management with AI replies, and a support-ticket workflow with email notifications. Built 20+ reusable React and TypeScript components integrated with Node.js, MongoDB, and REST APIs, and lifted Lighthouse performance from 50 to 75 on a live client site.',
+    tags: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'REST APIs'],
     logo: ragaaiLogo,
     logoBg: 'bg-white',
+    report: {
+      title: 'Developer Contribution Report — RagaAI',
+      meta: '18 pages · Clinical Ops, CMS, Denver Allergy',
+      href: '/reports/Aditya_Gupta_RagaAI_Contribution_Report.pdf',
+    },
   },
   {
     title: 'AI: Transformative Learning Intern',
@@ -68,7 +77,59 @@ const skills = [
   { label: 'DSA / Problem Solving', value: 70, color: 'oklch(0.769 0.188 70.08)' },
 ]
 
+function ReportViewer({ report, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  const linkClass = 'flex items-center gap-1.5 rounded-lg border border-[var(--line-10)] hover:bg-[var(--bg-elevated)] transition-colors text-xs font-medium px-2.5 py-1.5'
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-6" onClick={onClose}>
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={report.title}
+        className="flex flex-col w-full max-w-5xl h-full max-h-[92vh] rounded-xl overflow-hidden bg-[var(--bg-panel)] border border-[var(--line-10)] shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--line-10)]">
+          <FileText className="size-4 shrink-0 text-[oklch(0.488_0.243_264.376)]" />
+          <span className="font-semibold text-sm leading-5 truncate">{report.title}</span>
+          <div className="ml-auto flex items-center gap-1.5 shrink-0">
+            <a href={report.href} target="_blank" rel="noreferrer" className={`${linkClass} hidden sm:flex`}>
+              <ExternalLink className="size-3.5" />
+              Open
+            </a>
+            <a href={report.href} download className={linkClass}>
+              <Download className="size-3.5" />
+              Download
+            </a>
+            <button onClick={onClose} aria-label="Close report" className="rounded-lg p-1.5 hover:bg-[var(--bg-elevated)] transition-colors">
+              <X className="size-4" />
+            </button>
+          </div>
+        </div>
+        <object data={`${report.href}#navpanes=0&view=FitH`} type="application/pdf" className="flex-1 w-full bg-[var(--bg-app)]">
+          <div className="h-full flex flex-col items-center justify-center gap-3 p-6 text-center">
+            <FileText className="size-10 text-[var(--text-secondary)]" />
+            <p className="text-[var(--text-secondary)] text-sm leading-5">This browser can't preview PDFs inline.</p>
+            <a href={report.href} target="_blank" rel="noreferrer" className={linkClass}>
+              <ExternalLink className="size-3.5" />
+              Open report
+            </a>
+          </div>
+        </object>
+      </div>
+    </div>
+  )
+}
+
 export default function Experience() {
+  const [report, setReport] = useState(null)
+
   return (
     <main className="overflow-y-auto p-4 md:p-8 flex-1">
       {/* Page Header */}
@@ -97,7 +158,7 @@ export default function Experience() {
       {/* Stat Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 mb-6 md:mb-8 gap-3 md:gap-4">
         {[
-          { label: 'INTERNSHIP', icon: Clock, value: '5 mo', sub: 'RagaAI · SDE Frontend', subColor: 'oklch(0.488 0.243 264.376)' },
+          { label: 'INTERNSHIP', icon: Clock, value: '5 mo', sub: 'RagaAI · SDE Intern', subColor: 'oklch(0.488 0.243 264.376)' },
           { label: 'CLIENTS SERVED', icon: Users, value: '10+', sub: 'YouTubers & clients', subColor: 'var(--text-secondary)' },
           { label: 'PROJECTS', icon: Rocket, value: '7', sub: 'shipped & live', subColor: 'oklch(0.696 0.17 162.48)' },
           { label: 'CURRENT STATUS', icon: Activity, value: 'Active', sub: 'open to work', subColor: 'oklch(0.696 0.17 162.48)', iconColor: 'oklch(0.696 0.17 162.48)' },
@@ -166,6 +227,21 @@ export default function Experience() {
                         <span key={tag} className="rounded-lg bg-[var(--bg-elevated)] text-xs leading-4 px-2 py-1">{tag}</span>
                       ))}
                     </div>
+                    {job.report && (
+                      <button
+                        onClick={() => setReport(job.report)}
+                        className="flex items-center gap-3 rounded-lg border border-[var(--line-10)] bg-[var(--bg-app)] hover:bg-[var(--bg-elevated)] transition-colors px-3 py-2.5 text-left"
+                      >
+                        <span className="size-8 shrink-0 rounded-md bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] flex items-center justify-center">
+                          <FileText className="size-4" />
+                        </span>
+                        <span className="flex flex-col min-w-0">
+                          <span className="font-medium text-sm leading-5 truncate">{job.report.title}</span>
+                          <span className="text-[var(--text-secondary)] text-xs leading-4 truncate">{job.report.meta}</span>
+                        </span>
+                        <span className="ml-auto shrink-0 text-[oklch(0.488_0.243_264.376)] text-xs font-medium">View report</span>
+                      </button>
+                    )}
                   </CardContent>
                 </Card>
               </div>
@@ -218,16 +294,25 @@ export default function Experience() {
               <GraduationCap className="size-4 text-[oklch(0.488_0.243_264.376)]" />
               <h3 className="font-bold text-base leading-6">Education</h3>
             </CardHeader>
-            <CardContent className="p-0 gap-1">
-              <div className="font-medium text-sm leading-5">BTech Computer Science Engineering</div>
-              <div className="text-[oklch(0.488_0.243_264.376)] text-xs leading-4">Lovely Professional University · 2023–Present</div>
-              <p className="text-[var(--text-secondary)] text-xs leading-4 mt-2">
-                Full-stack web development, programming, and user-centric design. Active in campus dev society.
-              </p>
+            <CardContent className="p-0 gap-4">
+              <div className="flex flex-col gap-1">
+                <div className="font-medium text-sm leading-5">BTech Computer Science Engineering</div>
+                <div className="text-[oklch(0.488_0.243_264.376)] text-xs leading-4">Lovely Professional University · 2023–2026</div>
+                <p className="text-[var(--text-secondary)] text-xs leading-4 mt-1">
+                  Graduated 2026. Full-stack web development, programming, and user-centric design. Active in campus dev society.
+                </p>
+              </div>
+              <div className="flex flex-col gap-1 pt-4 border-t border-[var(--line-8)]">
+                <div className="font-medium text-sm leading-5">Diploma in Electrical Engineering</div>
+                <div className="text-[oklch(0.488_0.243_264.376)] text-xs leading-4">Buddha Polytechnic College · 2020–2023</div>
+                <p className="text-[var(--text-secondary)] text-xs leading-4 mt-1">CGPA 8.1 / 10 · Gorakhpur, Uttar Pradesh</p>
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
+
+      {report && <ReportViewer report={report} onClose={() => setReport(null)} />}
     </main>
   )
 }
