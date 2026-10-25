@@ -16,6 +16,9 @@ import foodImpact from '../assets/foodImpact.png'
 import foodLeaderboard from '../assets/foodLeaderbord.png'
 import foodLogin from '../assets/foodLogin.png'
 import foodMyDonation from '../assets/foodMyDonation.png'
+import foodAppHero from '../assets/foodsaver-app-hero.jpg'
+import foodAppRoles from '../assets/foodsaver-app-roles.jpg'
+import foodAppInstall from '../assets/foodsaver-app-install.jpg'
 import taskflowDashboard from '../assets/taskflow-dashboard.png'
 import taskflowLogin from '../assets/taskflow-login.png'
 import invoiceflowVideo from '../assets/invoiceflow-demo.mov'
@@ -78,6 +81,22 @@ const projects = [
     repo: 'https://github.com/Adityaguptawebdev/FoodSaver_frontend',
     repoBack: 'https://github.com/Adityaguptawebdev/FoodSaver_backend',
     live: 'https://donateforgood.vercel.app/',
+  },
+  {
+    name: 'FoodSaver — Android App',
+    status: 'PRODUCTION',
+    statusColor: 'oklch(0.696 0.17 162.48)',
+    desc: 'React Native (Expo) Android app for FoodSaver, on the same account and API as the web platform. Donors post surplus food with a photo and a safe-until time; NGOs and volunteers within their chosen radius get a live alert, claim it in one tap, and confirm pickup with a private 6-digit handoff code only the donor sees. Includes a claimed → picked up → delivered journey track, a radar view of nearby food, AI-filled listing details, Google Sign-In, impact badges and a leaderboard. Shipped as an APK from its own download site.',
+    progress: 95,
+    tags: ['React Native', 'Expo', 'TypeScript', 'Expo Router', 'React Query', 'Reanimated'],
+    stars: null,
+    commit: '2026 · Latest',
+    uptime: '99.9%',
+    uptimeColor: 'oklch(0.696 0.17 162.48)',
+    archived: false,
+    images: [foodAppHero, foodAppRoles, foodAppInstall],
+    repo: 'https://github.com/Adityaguptawebdev/foodSaver',
+    live: 'https://food-saver-download.vercel.app/',
   },
   {
     name: 'Hintro — Video Introduction Platform',
