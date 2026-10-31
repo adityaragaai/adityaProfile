@@ -25,7 +25,7 @@ const jobs = [
   {
     title: 'Product Software Engineer (Freelance)',
     company: 'FirstBriq · Remote',
-    period: '2026 — Present',
+    period: 'Sep 2026 — Present',
     current: true,
     dotColor: 'oklch(0.488 0.243 264.376)',
     desc: 'Own product features end to end, from scoping with the founders through design, build, deploy and iteration. Building FirstBriq\'s operations platform for interior and construction teams: WhatsApp-to-ERP workflow automation, AI-assisted lead management and the dashboards PMs use to review and approve changes. Ship full-stack features with React, Next.js and Tailwind on the frontend and typed Node.js / Express APIs on MongoDB, with validation, background jobs and tests built in.',
@@ -36,8 +36,8 @@ const jobs = [
   {
     title: 'SDE Intern',
     company: 'RagaAI · Bengaluru, India',
-    period: 'Jan 2026 – May 2026',
-    current: false,
+    period: 'Jan 2026 — Present',
+    current: true,
     dotColor: 'oklch(0.488 0.243 264.376)',
     desc: 'Shipped production features across RagaAI\'s Clinical Ops, CMS, and Denver Allergy products — fax classification and AI-assisted billing collections dashboards, review management with AI replies, and a support-ticket workflow with email notifications. Built 20+ reusable React and TypeScript components integrated with Node.js, MongoDB, and REST APIs, and lifted Lighthouse performance from 50 to 75 on a live client site.',
     tags: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'REST APIs'],
@@ -63,7 +63,7 @@ const jobs = [
   {
     title: 'Full-Stack Developer Trainee',
     company: 'PW Skills — Sigma Batch 1.0',
-    period: 'Jan 2023 — Mar 2024 · 15 months',
+    period: 'Jul 2023 — Mar 2024 · 9 months',
     current: false,
     dotColor: 'oklch(0.696 0.17 162.48)',
     desc: 'Completed an intensive Full-Stack Web Development program. Mastered the MERN stack — HTML, CSS, JavaScript, React.js, Node.js, and MongoDB — while building multiple real-world projects from scratch.',
@@ -74,8 +74,8 @@ const jobs = [
   {
     title: 'Freelance Web Developer',
     company: 'Self-employed · Remote',
-    period: '2022 — Present',
-    current: true,
+    period: '2022 — Jun 2026',
+    current: false,
     dotColor: 'oklch(0.627 0.265 303.9)',
     desc: 'Delivered responsive web applications and UI/UX designs for clients. Managed social media content and video production for 10+ YouTubers as a Content Creator and Social Media Manager.',
     tags: ['HTML', 'CSS', 'React.js', 'Figma', 'Content Creation'],
