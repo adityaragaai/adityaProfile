@@ -63,7 +63,7 @@ const jobs = [
   {
     title: 'Full-Stack Developer Trainee',
     company: 'PW Skills — Sigma Batch 1.0',
-    period: 'Jan 2023 — Mar 2024 · 15 months',
+    period: 'Jul 2023 — Mar 2024 · 9 months',
     current: false,
     dotColor: 'oklch(0.696 0.17 162.48)',
     desc: 'Completed an intensive Full-Stack Web Development program. Mastered the MERN stack — HTML, CSS, JavaScript, React.js, Node.js, and MongoDB — while building multiple real-world projects from scratch.',
