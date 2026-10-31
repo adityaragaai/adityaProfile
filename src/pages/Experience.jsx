@@ -36,8 +36,8 @@ const jobs = [
   {
     title: 'SDE Intern',
     company: 'RagaAI · Bengaluru, India',
-    period: 'Jan 2026 – May 2026',
-    current: false,
+    period: 'Jan 2026 — Present',
+    current: true,
     dotColor: 'oklch(0.488 0.243 264.376)',
     desc: 'Shipped production features across RagaAI\'s Clinical Ops, CMS, and Denver Allergy products — fax classification and AI-assisted billing collections dashboards, review management with AI replies, and a support-ticket workflow with email notifications. Built 20+ reusable React and TypeScript components integrated with Node.js, MongoDB, and REST APIs, and lifted Lighthouse performance from 50 to 75 on a live client site.',
     tags: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'REST APIs'],
