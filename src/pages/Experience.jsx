@@ -25,7 +25,7 @@ const jobs = [
   {
     title: 'Product Software Engineer (Freelance)',
     company: 'FirstBriq · Remote',
-    period: '2026 — Present',
+    period: 'Sep 2026 — Present',
     current: true,
     dotColor: 'oklch(0.488 0.243 264.376)',
     desc: 'Own product features end to end, from scoping with the founders through design, build, deploy and iteration. Building FirstBriq\'s operations platform for interior and construction teams: WhatsApp-to-ERP workflow automation, AI-assisted lead management and the dashboards PMs use to review and approve changes. Ship full-stack features with React, Next.js and Tailwind on the frontend and typed Node.js / Express APIs on MongoDB, with validation, background jobs and tests built in.',
