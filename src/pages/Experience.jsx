@@ -74,8 +74,8 @@ const jobs = [
   {
     title: 'Freelance Web Developer',
     company: 'Self-employed · Remote',
-    period: '2022 — Present',
-    current: true,
+    period: '2022 — Jun 2026',
+    current: false,
     dotColor: 'oklch(0.627 0.265 303.9)',
     desc: 'Delivered responsive web applications and UI/UX designs for clients. Managed social media content and video production for 10+ YouTubers as a Content Creator and Social Media Manager.',
     tags: ['HTML', 'CSS', 'React.js', 'Figma', 'Content Creation'],
