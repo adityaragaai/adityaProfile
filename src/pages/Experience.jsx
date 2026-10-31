@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import profile2 from '../assets/profile2.png'
 import ragaaiLogo from '../assets/ragaai-logo.svg'
+import firstbriqLogo from '../assets/firstbriq-logo.svg'
 import microsoftLogo from '../assets/microsoft-logo.png'
 import pwskillsLogo from '../assets/pwskills-logo.png'
 import {
@@ -21,6 +22,17 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const jobs = [
+  {
+    title: 'Product Software Engineer (Freelance)',
+    company: 'FirstBriq · Remote',
+    period: '2026 — Present',
+    current: true,
+    dotColor: 'oklch(0.488 0.243 264.376)',
+    desc: 'Own product features end to end, from scoping with the founders through design, build, deploy and iteration. Building FirstBriq\'s operations platform for interior and construction teams: WhatsApp-to-ERP workflow automation, AI-assisted lead management and the dashboards PMs use to review and approve changes. Ship full-stack features with React, Next.js and Tailwind on the frontend and typed Node.js / Express APIs on MongoDB, with validation, background jobs and tests built in.',
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+    logo: firstbriqLogo,
+    logoBg: 'bg-white',
+  },
   {
     title: 'SDE Intern',
     company: 'RagaAI · Bengaluru, India',
@@ -138,7 +150,7 @@ export default function Experience() {
           <div className="flex mb-1 items-center gap-3">
             <h1 className="font-bold text-2xl md:text-3xl leading-8 md:leading-9 tracking-tight">Experience</h1>
             <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] font-mono rounded-full text-xs leading-4 px-2 py-0.5">
-              4 roles
+              5 roles
             </span>
           </div>
           <p className="text-[var(--text-secondary)] text-sm leading-5">{`Deployment history · roles & engineering tenures`}</p>
