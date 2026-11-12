@@ -27,6 +27,7 @@ import { FallbackComponent } from '../CustomComponents'
 import CommitHeatmap from '../components/CommitHeatmap'
 import ScrambleText from '@/components/ui/scramble-text'
 import AnimatedNumber from '@/components/ui/animated-number'
+import FeaturedProjects from '../components/FeaturedProjects'
 import GitHubStats from '../components/GitHubStats'
 import { useLeetCode } from '../hooks/useLeetCode'
 import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
@@ -188,6 +189,25 @@ export default function Dashboard({ onNavigate }) {
           </CardContent>
         </Card>
       </div>
+
+      {/* Featured Projects — expand-on-hover strip (Skiper52) */}
+      <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 md:p-5 gap-4">
+        <CardHeader className="p-0 gap-1">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <Sparkles className="size-4 text-[oklch(0.488_0.243_264.376)]" />
+              <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Featured Projects</span>
+            </div>
+            <button onClick={() => onNavigate?.('projects')} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-[10px] flex items-center gap-1">
+              View all
+              <ChevronRight className="size-3" />
+            </button>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <FeaturedProjects />
+        </CardContent>
+      </Card>
 
       {/* LeetCode Teaser Card */}
       <LeetCodeCard onNavigate={onNavigate} />
