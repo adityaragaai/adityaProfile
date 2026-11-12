@@ -1,5 +1,4 @@
 import { useState, useRef, useLayoutEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { Activity, Archive, ChevronLeft, ChevronRight, ExternalLink, GitCommit, Plus, Star } from 'lucide-react'
 import reboxedScreenshot from '../assets/reboxed-screenshot.png'
 import applevisionScreenshot from '../assets/applevision-screenshot.png'
@@ -39,7 +38,6 @@ import tdcProfile from '../assets/tdc-profile.jpg'
 import tdcLogin from '../assets/tdc-login.jpg'
 
 import TECH_ICONS from '../lib/techIcons'
-import ProjectShowcase from '../components/ProjectShowcase'
 
 function GithubIcon({ className }) {
   return (
@@ -340,25 +338,6 @@ const projects = [
   },
 ]
 
-// Projects featured in the expand-on-hover strip at the top of the page, in order.
-const SHOWCASE_NAMES = [
-  'AlgoTaskFlow — Task Manager',
-  'FoodSaver — Surplus Food to NGOs',
-  'Hintro — Video Introduction Platform',
-  'VedaAI — AI Exam Grader',
-  'TDC — Matchmaker Console',
-  'Ivy — Healthcare Cost Assistant',
-  'InvoiceFlow — Invoice Management System',
-  'Apple Vision Pro — Clone',
-]
-const showcaseProjects = SHOWCASE_NAMES
-  .map(name => projects.find(p => p.name === name))
-  .filter(p => p && p.images.length > 0)
-
-function projectId(name) {
-  return 'project-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-}
-
 function filterProjects(list, active) {
   if (active === 'all')        return list
   if (active === 'production') return list.filter(p => p.status === 'PRODUCTION' && !p.type)
@@ -369,31 +348,16 @@ function filterProjects(list, active) {
 }
 
 function ImageCarousel({ images, repo, live, repoBack, statusColor }) {
-  // [index, direction] — direction drives which way the slide enters/leaves
-  const [[current, direction], setSlide] = useState([0, 0])
+  const [current, setCurrent] = useState(0)
   if (!images || images.length === 0) return null
-  const go = (next, dir) => setSlide([(next + images.length) % images.length, dir])
 
   return (
     <div className="group relative w-full rounded-lg overflow-hidden bg-neutral-950" style={{ aspectRatio: '16/9' }}>
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.img
-          key={current}
-          src={images[current]}
-          alt={`screenshot ${current + 1}`}
-          custom={direction}
-          variants={{
-            enter: dir => ({ x: dir === 0 ? 0 : `${dir * 30}%`, opacity: 0, filter: 'blur(6px)' }),
-            center: { x: 0, opacity: 1, filter: 'blur(0px)' },
-            exit: dir => ({ x: dir === 0 ? 0 : `${dir * -30}%`, opacity: 0, filter: 'blur(6px)' }),
-          }}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0 w-full h-full object-contain"
-        />
-      </AnimatePresence>
+      <img
+        src={images[current]}
+        alt={`screenshot ${current + 1}`}
+        className="w-full h-full object-contain"
+      />
 
       <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <div className="absolute inset-0 bg-black/50" />
@@ -433,19 +397,19 @@ function ImageCarousel({ images, repo, live, repoBack, statusColor }) {
 
       {images.length > 1 && (
         <>
-          <button onClick={() => go(current - 1, -1)}
+          <button onClick={() => setCurrent((current - 1 + images.length) % images.length)}
             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-1 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronLeft className="size-3.5" />
           </button>
-          <button onClick={() => go(current + 1, 1)}
+          <button onClick={() => setCurrent((current + 1) % images.length)}
             className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white rounded-full p-1 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronRight className="size-3.5" />
           </button>
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
             {images.map((_, i) => (
-              <button key={i} onClick={() => go(i, i > current ? 1 : -1)}
+              <button key={i} onClick={() => setCurrent(i)}
                 className="rounded-full transition-all"
                 style={{ width: i === current ? '16px' : '6px', height: '6px', backgroundColor: i === current ? 'white' : 'rgba(255,255,255,0.4)' }}
               />
@@ -479,17 +443,6 @@ export default function Projects() {
   const btnRefs = useRef([])
   const [pill, setPill] = useState({ left: 0, width: 0 })
   const isAssignmentActive = activeFilter === 'assignment'
-  const [highlighted, setHighlighted] = useState(null)
-
-  // Showcase click: make sure the card is visible under the current filter, then scroll to it.
-  function openProject(project) {
-    if (!filterProjects(projects, activeFilter).includes(project)) setActiveFilter('all')
-    requestAnimationFrame(() => {
-      document.getElementById(projectId(project.name))?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      setHighlighted(project.name)
-      setTimeout(() => setHighlighted(h => (h === project.name ? null : h)), 1800)
-    })
-  }
   const mainActiveIdx = MAIN_FILTERS.findIndex(f => f.key === activeFilter)
 
   useLayoutEffect(() => {
@@ -521,18 +474,6 @@ export default function Projects() {
           <span className="hidden sm:inline">View </span>GitHub
         </a>
       </div>
-
-      {/* Featured showcase (Skiper52 expand-on-hover) */}
-      <section className="flex flex-col gap-2" aria-label="Featured projects">
-        <div className="flex items-center justify-between">
-          <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Featured</span>
-          <span className="font-mono text-[var(--text-tertiary)] text-[10px]">
-            <span className="hidden md:inline">hover to preview · click to open</span>
-            <span className="md:hidden">tap to preview · tap again to open</span>
-          </span>
-        </div>
-        <ProjectShowcase projects={showcaseProjects} onOpen={openProject} />
-      </section>
 
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center gap-2">
@@ -614,13 +555,10 @@ export default function Projects() {
         {visible.map(project => (
           <div
             key={project.name}
-            id={projectId(project.name)}
-            className="flex flex-col rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl scroll-mt-4"
+            className="flex flex-col rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
             style={{
               backgroundColor: 'var(--bg-panel)',
               border: '1px solid var(--line-8)',
-              boxShadow: highlighted === project.name ? `0 0 0 2px ${project.statusColor}, 0 0 24px 0 color-mix(in oklch, ${project.statusColor} 40%, transparent)` : undefined,
-              transition: 'box-shadow 0.4s ease, transform 0.2s, background-color 0.2s',
             }}
           >
             {/* Colored top accent */}
