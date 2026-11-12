@@ -1,13 +1,10 @@
 import {
   Activity,
-  ArrowUpRight,
   Calendar,
   Cpu,
   Download,
-  ExternalLink,
   FolderOpen,
   GitCommit,
-  Layers,
   Mail,
   MapPin,
   Rocket,
@@ -25,6 +22,10 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import TECH_ICONS from '../lib/techIcons'
 import { FallbackComponent } from '../CustomComponents'
 import CommitHeatmap from '../components/CommitHeatmap'
+import ScrambleText from '@/components/ui/scramble-text'
+import AnimatedNumber from '@/components/ui/animated-number'
+import FeaturedProjects from '../components/FeaturedProjects'
+import ExperienceCard from '../components/ExperienceCard'
 import GitHubStats from '../components/GitHubStats'
 import { useLeetCode } from '../hooks/useLeetCode'
 import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
@@ -32,8 +33,9 @@ import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
 export default function Dashboard({ onNavigate }) {
   return (
     <div className="flex p-4 md:p-6 flex-col flex-1 gap-4 overflow-auto">
-      {/* Hero Banner */}
-      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl bg-[var(--hero-bg)] border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
+      {/* Hero Banner — shrink-0: as an overflow-hidden flex item it would otherwise be
+          squeezed to its min-height on phones and clip the top of its content. */}
+      <div className="relative shrink-0 min-h-[320px] md:min-h-[240px] rounded-2xl bg-[var(--hero-bg)] border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODc2NDd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBtaW5pbWFsJTIwZGFya3xlbnwxfDB8fHwxNzgwMTk3MjgxfDA&ixlib=rb-4.1.0&q=80&w=1200"
           alt="Developer workspace"
@@ -51,7 +53,11 @@ export default function Dashboard({ onNavigate }) {
             </span>
           </div>
           <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-4xl leading-8 md:leading-10 tracking-tight">
-            Aditya Gupta
+            <ScrambleText
+              text="Aditya Gupta"
+              className="cursor-default"
+              glyphClassName="text-[var(--accent-blue-soft)]"
+            />
             <span className="font-light text-[var(--text-secondary)]"> / Full-Stack Developer</span>
           </h1>
           <p className="max-w-xl text-[var(--text-secondary)] text-xs md:text-sm leading-5">
@@ -138,7 +144,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Projects Shipped</span>
               <Rocket className="size-3.5 text-[oklch(0.488_0.243_264.376)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">7</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={7} /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               +3 this year
@@ -151,7 +157,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">GitHub Commits</span>
               <GitCommit className="size-3.5 text-[oklch(0.696_0.17_162.48)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">500+</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={500} suffix="+" /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               across all repos
@@ -164,7 +170,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">APIs Integrated</span>
               <Plug className="size-3.5 text-[oklch(0.769_0.188_70.08)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">24</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={24} /></p>
             <p className="text-[var(--text-secondary)] text-[10px] mt-1">OpenAI · Stripe · Clerk · more</p>
           </CardContent>
         </Card>
@@ -174,7 +180,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Uptime SLA</span>
               <Activity className="size-3.5 text-[oklch(0.627_0.265_303.9)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">99.9%</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={99.9} decimals={1} suffix="%" /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] inline-block rounded-full" />
               All systems live
@@ -183,113 +189,33 @@ export default function Dashboard({ onNavigate }) {
         </Card>
       </div>
 
+      {/* Featured Projects — expand-on-hover strip (Skiper52) */}
+      <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-4 md:p-5 gap-4">
+        <CardHeader className="p-0 gap-1">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <Sparkles className="size-4 text-[oklch(0.488_0.243_264.376)]" />
+              <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Featured Projects</span>
+            </div>
+            <button onClick={() => onNavigate?.('projects')} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-[10px] flex items-center gap-1">
+              View all
+              <ChevronRight className="size-3" />
+            </button>
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <FeaturedProjects />
+        </CardContent>
+      </Card>
+
       {/* LeetCode Teaser Card */}
       <LeetCodeCard onNavigate={onNavigate} />
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
-          {/* Active Projects */}
-          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4 [.light_&]:flex [.light_&]:flex-col">
-            <CardHeader className="p-0 gap-1">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Layers className="size-4 text-[oklch(0.488_0.243_264.376)]" />
-                  <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Active Projects</span>
-                  <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/20 rounded-full text-[10px] border-1 border-solid px-2 py-0.5">
-                    3 running
-                  </span>
-                </div>
-                <button onClick={() => onNavigate?.('projects')} className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
-                  <ExternalLink className="size-3" />
-                  View all
-                </button>
-              </div>
-            </CardHeader>
-            <CardContent className="flex p-0 flex-col gap-2">
-              {[
-                {
-                  name: 'FoodSaver — Surplus Food to NGOs',
-                  status: 'PRODUCTION',
-                  color: 'var(--accent-emerald)',
-                  desc: 'Connects restaurants and individuals with surplus food to nearby NGOs — live donation feed, claim flow, impact charts, and AI-assisted listings.',
-                  progress: 90,
-                  bar: 'var(--accent-emerald)',
-                  tags: ['React.js', 'Tailwind CSS', 'Node.js', 'MongoDB'],
-                  link: 'https://donateforgood.vercel.app/',
-                },
-                {
-                  name: 'AlgoTaskFlow — Task Manager',
-                  status: 'PRODUCTION',
-                  color: 'oklch(0.488 0.243 264.376)',
-                  desc: 'Full-stack task manager with JWT auth, role-based access, Admin CRUD, Recharts analytics, and Zustand theming.',
-                  progress: 92,
-                  bar: 'oklch(0.488 0.243 264.376)',
-                  tags: ['React 19', 'TypeScript', 'Node.js', 'MongoDB'],
-                  link: 'https://algotaskflow.vercel.app/dashboard',
-                },
-                {
-                  name: 'Ivy — Healthcare Cost Assistant',
-                  status: 'PRODUCTION',
-                  color: 'var(--accent-emerald)',
-                  desc: 'React Native app that turns an insurance card photo into a personalized out-of-pocket estimate, with clinic cost comparison and PDF export.',
-                  progress: 100,
-                  bar: 'var(--accent-emerald)',
-                  tags: ['React Native', 'Expo', 'TypeScript'],
-                  link: 'https://github.com/Adityaguptawebdev/ivy-health-app',
-                },
-              ].map((project) => (
-                <div key={project.name} className="bg-[var(--bg-app)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
-                  <div className="flex justify-between items-start">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="size-2 rounded-full" style={{ backgroundColor: project.color }} />
-                        <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">{project.name}</span>
-                        <span
-                          className="rounded-full text-[10px] border-1 border-solid px-2 py-0.5"
-                          style={{
-                            color: project.color,
-                            backgroundColor: `color-mix(in oklch, ${project.color} 10%, transparent)`,
-                            borderColor: `color-mix(in oklch, ${project.color} 20%, transparent)`,
-                          }}
-                        >
-                          {project.status}
-                        </span>
-                      </div>
-                      <p className="text-[var(--text-secondary)] text-xs leading-4">{project.desc}</p>
-                    </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-lg text-[var(--text-secondary)] text-[10px] border-[var(--line-10)] border-1 border-solid flex px-2 py-1 items-center gap-1"
-                    >
-                      <ArrowUpRight className="size-3" />
-                      Open
-                    </a>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="flex items-center gap-1 rounded-full text-[10px] font-medium px-2.5 py-0.5"
-                        style={{
-                          color: project.color,
-                          backgroundColor: `color-mix(in oklch, ${project.color} 10%, transparent)`,
-                          border: `1px solid color-mix(in oklch, ${project.color} 20%, transparent)`,
-                        }}
-                      >
-                        {TECH_ICONS[tag] && (
-                          <img src={TECH_ICONS[tag]} alt={tag} className="size-3 object-contain" />
-                        )}
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+          {/* Experience — compact timeline of recent roles */}
+          <ExperienceCard onNavigate={onNavigate} />
 
           {/* Commit Activity — live GitHub heatmap */}
           <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
