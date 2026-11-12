@@ -35,8 +35,9 @@ import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
 export default function Dashboard({ onNavigate }) {
   return (
     <div className="flex p-4 md:p-6 flex-col flex-1 gap-4 overflow-auto">
-      {/* Hero Banner */}
-      <div className="relative min-h-[320px] md:min-h-[240px] rounded-2xl bg-[var(--hero-bg)] border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
+      {/* Hero Banner — shrink-0: as an overflow-hidden flex item it would otherwise be
+          squeezed to its min-height on phones and clip the top of its content. */}
+      <div className="relative shrink-0 min-h-[320px] md:min-h-[240px] rounded-2xl bg-[var(--hero-bg)] border-[var(--line-10)] border-1 border-solid flex items-end overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1735948055457-8d816fb80a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODc2NDd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2UlMjBtaW5pbWFsJTIwZGFya3xlbnwxfDB8fHwxNzgwMTk3MjgxfDA&ixlib=rb-4.1.0&q=80&w=1200"
           alt="Developer workspace"
