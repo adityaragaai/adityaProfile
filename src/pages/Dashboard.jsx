@@ -25,6 +25,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import TECH_ICONS from '../lib/techIcons'
 import { FallbackComponent } from '../CustomComponents'
 import CommitHeatmap from '../components/CommitHeatmap'
+import ScrambleText from '@/components/ui/scramble-text'
 import GitHubStats from '../components/GitHubStats'
 import { useLeetCode } from '../hooks/useLeetCode'
 import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
@@ -51,7 +52,11 @@ export default function Dashboard({ onNavigate }) {
             </span>
           </div>
           <h1 className="font-bold text-[var(--text-primary)] text-2xl md:text-4xl leading-8 md:leading-10 tracking-tight">
-            Aditya Gupta
+            <ScrambleText
+              text="Aditya Gupta"
+              className="cursor-default"
+              glyphClassName="text-[var(--accent-blue-soft)]"
+            />
             <span className="font-light text-[var(--text-secondary)]"> / Full-Stack Developer</span>
           </h1>
           <p className="max-w-xl text-[var(--text-secondary)] text-xs md:text-sm leading-5">
