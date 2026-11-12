@@ -22,11 +22,11 @@ import tdcDashboard from '../assets/tdc-dashboard.jpg'
 const BLUE = 'oklch(0.488 0.243 264.376)'
 const EMERALD = 'oklch(0.696 0.17 162.48)'
 
-// Same order as the top of the Projects page ("All").
+// The first entry is the panel that starts open.
 const FEATURED = [
+  { name: 'FoodSaver App', tagline: 'Android app', image: foodAppHero, href: 'https://food-saver-download.vercel.app/', color: EMERALD },
   { name: 'AlgoTaskFlow', tagline: 'Task manager', image: taskflowDashboard, href: 'https://algotaskflow.vercel.app/dashboard', color: BLUE },
   { name: 'FoodSaver', tagline: 'Surplus food to NGOs', image: foodHome, href: 'https://donateforgood.vercel.app/', color: EMERALD },
-  { name: 'FoodSaver App', tagline: 'Android app', image: foodAppHero, href: 'https://food-saver-download.vercel.app/', color: EMERALD },
   { name: 'Hintro', tagline: 'Video introductions', image: hintroHome, href: 'https://hintro-fronend-b2iz.vercel.app/', color: EMERALD },
   { name: 'VedaAI', tagline: 'AI exam grader', image: vedaaiHome, href: 'https://vedaai-exams.vercel.app/', color: EMERALD },
   { name: 'TDC', tagline: 'Matchmaker console', image: tdcDashboard, href: 'https://tdc-matchmaker-console-mu.vercel.app', color: BLUE },
