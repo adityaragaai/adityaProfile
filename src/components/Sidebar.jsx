@@ -1,5 +1,6 @@
 import { Briefcase, Code2, LayoutDashboard, Mail, Network, Terminal, User, Trophy } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { PAGE_PATHS } from '@/lib/routes'
 import profileImg from '../assets/profile.jpg'
 
 const navItems = [
@@ -37,10 +38,23 @@ export default function Sidebar({ activePage, onNavigate, isOpen }) {
         {navItems.map(({ id, label, icon: Icon }) => {
           const isActive = activePage === id
           const isNavigable = navigablePages.has(id)
+          // Navigable items are real links (so ⌘/Ctrl-click and "copy link" work);
+          // a plain click is handled in-app without a page reload.
+          const Tag = isNavigable ? 'a' : 'button'
           return (
-            <button
+            <Tag
               key={id}
-              onClick={() => isNavigable && onNavigate(id)}
+              {...(isNavigable
+                ? {
+                    href: PAGE_PATHS[id],
+                    'aria-current': isActive ? 'page' : undefined,
+                    onClick: (e) => {
+                      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
+                      e.preventDefault()
+                      onNavigate(id)
+                    },
+                  }
+                : { type: 'button' })}
               className={cn(
                 'text-left rounded-lg text-sm leading-5 flex px-3 py-2 items-center gap-2 w-full transition-colors',
                 isActive ? 'bg-[var(--bg-elevated)] font-medium text-[var(--text-primary)]' : 'text-[var(--text-secondary)]',
@@ -55,7 +69,7 @@ export default function Sidebar({ activePage, onNavigate, isOpen }) {
                 )}
               />
               {label}
-            </button>
+            </Tag>
           )
         })}
       </nav>
