@@ -1,13 +1,10 @@
 import {
   Activity,
-  ArrowUpRight,
   Calendar,
   Cpu,
   Download,
-  ExternalLink,
   FolderOpen,
   GitCommit,
-  Layers,
   Mail,
   MapPin,
   Rocket,
@@ -28,6 +25,7 @@ import CommitHeatmap from '../components/CommitHeatmap'
 import ScrambleText from '@/components/ui/scramble-text'
 import AnimatedNumber from '@/components/ui/animated-number'
 import FeaturedProjects from '../components/FeaturedProjects'
+import ExperienceCard from '../components/ExperienceCard'
 import GitHubStats from '../components/GitHubStats'
 import { useLeetCode } from '../hooks/useLeetCode'
 import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
@@ -216,107 +214,8 @@ export default function Dashboard({ onNavigate }) {
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
-          {/* Active Projects */}
-          <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4 [.light_&]:flex [.light_&]:flex-col">
-            <CardHeader className="p-0 gap-1">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Layers className="size-4 text-[oklch(0.488_0.243_264.376)]" />
-                  <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">Active Projects</span>
-                  <span className="bg-[oklch(0.488_0.243_264.376)]/15 text-[oklch(0.488_0.243_264.376)] border-[oklch(0.488_0.243_264.376)]/20 rounded-full text-[10px] border-1 border-solid px-2 py-0.5">
-                    3 running
-                  </span>
-                </div>
-                <button onClick={() => onNavigate?.('projects')} className="text-[var(--text-secondary)] text-[10px] flex items-center gap-1">
-                  <ExternalLink className="size-3" />
-                  View all
-                </button>
-              </div>
-            </CardHeader>
-            <CardContent className="flex p-0 flex-col gap-2">
-              {[
-                {
-                  name: 'FoodSaver — Surplus Food to NGOs',
-                  status: 'PRODUCTION',
-                  color: 'var(--accent-emerald)',
-                  desc: 'Connects restaurants and individuals with surplus food to nearby NGOs — live donation feed, claim flow, impact charts, and AI-assisted listings.',
-                  progress: 90,
-                  bar: 'var(--accent-emerald)',
-                  tags: ['React.js', 'Tailwind CSS', 'Node.js', 'MongoDB'],
-                  link: 'https://donateforgood.vercel.app/',
-                },
-                {
-                  name: 'AlgoTaskFlow — Task Manager',
-                  status: 'PRODUCTION',
-                  color: 'oklch(0.488 0.243 264.376)',
-                  desc: 'Full-stack task manager with JWT auth, role-based access, Admin CRUD, Recharts analytics, and Zustand theming.',
-                  progress: 92,
-                  bar: 'oklch(0.488 0.243 264.376)',
-                  tags: ['React 19', 'TypeScript', 'Node.js', 'MongoDB'],
-                  link: 'https://algotaskflow.vercel.app/dashboard',
-                },
-                {
-                  name: 'Ivy — Healthcare Cost Assistant',
-                  status: 'PRODUCTION',
-                  color: 'var(--accent-emerald)',
-                  desc: 'React Native app that turns an insurance card photo into a personalized out-of-pocket estimate, with clinic cost comparison and PDF export.',
-                  progress: 100,
-                  bar: 'var(--accent-emerald)',
-                  tags: ['React Native', 'Expo', 'TypeScript'],
-                  link: 'https://github.com/Adityaguptawebdev/ivy-health-app',
-                },
-              ].map((project) => (
-                <div key={project.name} className="bg-[var(--bg-app)] rounded-xl border-[var(--line-10)] border-1 border-solid flex p-4 flex-col gap-3">
-                  <div className="flex justify-between items-start">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2">
-                        <span className="size-2 rounded-full" style={{ backgroundColor: project.color }} />
-                        <span className="font-semibold text-[var(--text-primary)] text-sm leading-5">{project.name}</span>
-                        <span
-                          className="rounded-full text-[10px] border-1 border-solid px-2 py-0.5"
-                          style={{
-                            color: project.color,
-                            backgroundColor: `color-mix(in oklch, ${project.color} 10%, transparent)`,
-                            borderColor: `color-mix(in oklch, ${project.color} 20%, transparent)`,
-                          }}
-                        >
-                          {project.status}
-                        </span>
-                      </div>
-                      <p className="text-[var(--text-secondary)] text-xs leading-4">{project.desc}</p>
-                    </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-lg text-[var(--text-secondary)] text-[10px] border-[var(--line-10)] border-1 border-solid flex px-2 py-1 items-center gap-1"
-                    >
-                      <ArrowUpRight className="size-3" />
-                      Open
-                    </a>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="flex items-center gap-1 rounded-full text-[10px] font-medium px-2.5 py-0.5"
-                        style={{
-                          color: project.color,
-                          backgroundColor: `color-mix(in oklch, ${project.color} 10%, transparent)`,
-                          border: `1px solid color-mix(in oklch, ${project.color} 20%, transparent)`,
-                        }}
-                      >
-                        {TECH_ICONS[tag] && (
-                          <img src={TECH_ICONS[tag]} alt={tag} className="size-3 object-contain" />
-                        )}
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+          {/* Experience — compact timeline of recent roles */}
+          <ExperienceCard onNavigate={onNavigate} />
 
           {/* Commit Activity — live GitHub heatmap */}
           <Card className="bg-[var(--bg-panel)] border-[var(--line-10)] border-0 border-solid p-6 gap-4">
