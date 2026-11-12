@@ -26,6 +26,7 @@ import TECH_ICONS from '../lib/techIcons'
 import { FallbackComponent } from '../CustomComponents'
 import CommitHeatmap from '../components/CommitHeatmap'
 import ScrambleText from '@/components/ui/scramble-text'
+import AnimatedNumber from '@/components/ui/animated-number'
 import GitHubStats from '../components/GitHubStats'
 import { useLeetCode } from '../hooks/useLeetCode'
 import { parseProfile, parseContest, parseBadges } from '../lib/leetcode'
@@ -143,7 +144,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Projects Shipped</span>
               <Rocket className="size-3.5 text-[oklch(0.488_0.243_264.376)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">7</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={7} /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               +3 this year
@@ -156,7 +157,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">GitHub Commits</span>
               <GitCommit className="size-3.5 text-[oklch(0.696_0.17_162.48)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">500+</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={500} suffix="+" /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <TrendingUp className="size-3" />
               across all repos
@@ -169,7 +170,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">APIs Integrated</span>
               <Plug className="size-3.5 text-[oklch(0.769_0.188_70.08)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">24</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={24} /></p>
             <p className="text-[var(--text-secondary)] text-[10px] mt-1">OpenAI · Stripe · Clerk · more</p>
           </CardContent>
         </Card>
@@ -179,7 +180,7 @@ export default function Dashboard({ onNavigate }) {
               <span className="uppercase text-[var(--text-secondary)] text-[10px] tracking-widest">Uptime SLA</span>
               <Activity className="size-3.5 text-[oklch(0.627_0.265_303.9)]" />
             </div>
-            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9">99.9%</p>
+            <p className="font-bold text-[var(--text-primary)] text-3xl leading-9"><AnimatedNumber value={99.9} decimals={1} suffix="%" /></p>
             <p className="text-[oklch(0.696_0.17_162.48)] text-[10px] flex mt-1 items-center gap-1">
               <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] inline-block rounded-full" />
               All systems live
