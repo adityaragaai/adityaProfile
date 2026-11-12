@@ -1,9 +1,7 @@
-import { Bell, Menu, Moon, Search, Settings, Sun } from 'lucide-react'
-import { useTheme } from '@/hooks/useTheme'
+import { Bell, Menu, Search, Settings } from 'lucide-react'
+import ThemeToggleButton from '@/components/ui/theme-toggle-button'
 
 export default function Header({ onMenuClick }) {
-  const { theme, toggleTheme } = useTheme()
-
   return (
     <header className="bg-[var(--bg-panel)] shrink-0 border-[var(--line-10)] border-t-0 border-r-0 border-b-1 border-l-0 border-solid flex px-4 md:px-6 items-center gap-3 md:gap-4 h-12">
       {/* Hamburger — mobile only */}
@@ -29,21 +27,19 @@ export default function Header({ onMenuClick }) {
         </div>
       </div>
 
-      <div className="flex ml-auto items-center gap-2 md:gap-3">
-        <div className="text-[oklch(0.696_0.17_162.48)] text-[10px] hidden sm:flex items-center gap-1">
+      <div className="flex ml-auto items-center gap-1">
+        <div className="text-[oklch(0.696_0.17_162.48)] text-[10px] hidden sm:flex items-center gap-1 mr-2">
           <span className="size-1.5 bg-[oklch(0.696_0.17_162.48)] inline-block rounded-full" />
           All systems operational
         </div>
-        <button
-          onClick={toggleTheme}
-          className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
-          aria-label="Toggle color theme"
-          title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-        >
-          {theme === 'dark' ? <Sun className="size-4" /> : <Moon className="size-4" />}
-        </button>
-        <Bell className="size-4 text-[var(--text-secondary)]" />
-        <Settings className="size-4 text-[var(--text-secondary)]" />
+        {/* All three header actions share the same 28px box so they line up evenly. */}
+        <ThemeToggleButton start="top-right" />
+        <span className="size-7 flex items-center justify-center text-[var(--text-secondary)]">
+          <Bell className="size-4" />
+        </span>
+        <span className="size-7 flex items-center justify-center text-[var(--text-secondary)]">
+          <Settings className="size-4" />
+        </span>
       </div>
     </header>
   )

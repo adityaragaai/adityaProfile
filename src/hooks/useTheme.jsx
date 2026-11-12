@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, useCallback, useContext, useLayoutEffect, useState } from 'react'
 
 const ThemeContext = createContext(null)
 
@@ -15,7 +15,9 @@ function getInitialTheme() {
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme)
 
-  useEffect(() => {
+  // Layout effect (not a passive effect) so the <html> class flips synchronously
+  // inside flushSync — the theme toggle's View Transition snapshots right after.
+  useLayoutEffect(() => {
     document.documentElement.classList.toggle('light', theme === 'light')
     try {
       window.localStorage.setItem('theme', theme)

@@ -72,6 +72,11 @@
   --hero-img-opacity: 0.1;
 }
 
+/* Easing for the theme toggle's View Transition reveal (Skiper UI). */
+:root {
+  --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 html {
   background: var(--bg-app);
   color-scheme: dark;
